@@ -34,7 +34,7 @@ export const signup = user => dispatch => {
   , errors => dispatch(receiveSessionErrors(errors))
   )
 }
-export const logout = userId => dispatch => {
-  return APIUtil.logout(userId)
-  .then( () => dispatch(logoutCurrentUser(userId)))
+export const logout = () => dispatch => {
+  return APIUtil.logout()
+  .then( () => dispatch(logoutCurrentUser()))
 }
