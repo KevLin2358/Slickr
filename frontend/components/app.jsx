@@ -13,12 +13,6 @@ import LoginFormContainer from './session_form/login_form_container';
 
 const App = () => (
   <div>
-    <header>
-      <Link to="/">
-        <h1>Slickr</h1>
-      </Link>
-    </header>
-
     <Route path="/" component={GreetingContainer} />
     
     <Route exact path="/" component={HomePageContainer} />
