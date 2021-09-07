@@ -2,7 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Greeting = ({currentUser, logout }) => {
-
+  const handleSubmit = () =>{
+    logout();
+  }
   const sessionLinks = () => (
     <nav className = "login-signup">
       <Link to="/login">Login</Link>
@@ -13,7 +15,7 @@ const Greeting = ({currentUser, logout }) => {
   const personalGreeting = () => (
     <div className="header-group">
       <h2>Hi, {currentUser.username}!</h2>
-      <button onClick={logout}>Log Out</button>
+      <Link onClick={handleSubmit} to="/">Log Out</Link>
     </div>
   );
 

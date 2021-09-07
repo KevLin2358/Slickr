@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class SessionForm extends React.Component {
       email: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   update(field) {
@@ -38,9 +40,18 @@ class SessionForm extends React.Component {
     );
   }
 
+  demoLogin(e){
+    e.preventDefault();
+    const demo =  {username: "demo", password: "demodemo"}
+    this.props.processDemo(demo);
+  }
+
   signupForm(){
+    const loggedIn = this.props.sessionId ? <Redirect to="/feed" /> : null
+
     return (
       <div className="signup-form-container">
+        {loggedIn}
         <form onSubmit={this.handleSubmit} className="signup-form-box">
           <div className = "session-form-errors">
             {this.renderErrors()}
@@ -52,7 +63,7 @@ class SessionForm extends React.Component {
               className="signup-input"
             />
           </label>
-          <br/>
+
           <label>Last name:
             <input type="text"
               value={this.state.last_name}
@@ -60,7 +71,7 @@ class SessionForm extends React.Component {
               className="signup-input"
             />
           </label>
-          <br/>
+
           <label>Email:
             <input type="text"
               value={this.state.email}
@@ -69,7 +80,6 @@ class SessionForm extends React.Component {
             />
           </label>
 
-          <br/>
           <label>Username:
             <input type="text"
               value={this.state.username}
@@ -77,7 +87,7 @@ class SessionForm extends React.Component {
               className="signup-input"
             />
           </label>
-          <br/>
+
           <label>Password:
             <input type="password"
               value={this.state.password}
@@ -85,7 +95,7 @@ class SessionForm extends React.Component {
               className="signup-input"
             />
           </label>
-          <br/>
+
           <input className="session-submit" type="submit" value={this.props.formType} />
         </form>
       </div>
@@ -93,14 +103,16 @@ class SessionForm extends React.Component {
   }
 
   loginForm(){
+    const loggedIn = this.props.sessionId ? <Redirect to="/feed" /> : null
     return (
       <div className="login-form-container">
+        {loggedIn}
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <div className = "session-form-errors">
             {this.renderErrors()}
           </div>
           <div className="login-form">
-            <br/>
+
             <label>Username:
               <input type="text"
                 value={this.state.username}
@@ -108,7 +120,7 @@ class SessionForm extends React.Component {
                 className="login-input"
               />
             </label>
-            <br/>
+
             <label>Password:
               <input type="password"
                 value={this.state.password}
@@ -116,8 +128,10 @@ class SessionForm extends React.Component {
                 className="login-input"
               />
             </label>
-            <br/>
+
             <input className="session-submit" type="submit" value={this.props.formType} />
+            <input className="session-submit" type="submit" value="Demo Login" onClick={this.demoLogin}/>
+
           </div>
         </form>
       </div>
@@ -125,6 +139,7 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    
     if(this.props.formType == 'login'){
       return this.loginForm();
     }
