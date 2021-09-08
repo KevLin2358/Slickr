@@ -22,6 +22,10 @@ const App = () => (
     <Switch>
       <Route exact path="/feed" component={FeedContainer} />
     </Switch>
+
+    <footer className="footer">
+
+    </footer>
   </div>
 );
 

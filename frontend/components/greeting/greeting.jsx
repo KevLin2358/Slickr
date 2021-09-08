@@ -6,11 +6,15 @@ const Greeting = ({currentUser, logout }) => {
     logout();
   }
   const sessionLinks = () => (
-    <nav className = "login-signup">
-      <Link to="/login">Login</Link>
-      <br />
-      <Link to="/signup">Sign Up!</Link>
-    </nav>
+    <header class ="header">
+      <nav className = "login-signup">
+        <Link to="/login">Login</Link>
+        <button className="signup">
+          <Link to="/signup">Sign Up</Link>
+        </button>
+      </nav>
+    </header>
+
   );
   const personalGreeting = () => (
     <div className="header-group">

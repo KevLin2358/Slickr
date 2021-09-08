@@ -1,0 +1,37 @@
+.homepage{
+  background: url(
+    https://i.pinimg.com/originals/93/b2/41/93b24188e3e04350e236c5376c99e247.jpg
+  );
+  position: absolute;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  background-position: 50%;
+  overflow: hidden;
+  position: fixed;
+
+  z-index: auto;
+}
+
+.home-text{
+  position: 50%;
+  /* color:rgb(0, 17, 252); */
+  color: rgb(56, 112, 188);
+  text-align: center;
+  margin: 0 auto;
+  max-width: 620px;
+  height: 100%;
+  padding-top: 250px;
+}
+
+
+.home-title{
+  padding-bottom: 25px;
+  font-size: 56px;
+  font-weight: 200;
+}
+
+.home-para{
+  padding-bottom: 45px;
+  font-size: 26px;
+}
