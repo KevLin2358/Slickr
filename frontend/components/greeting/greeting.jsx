@@ -7,9 +7,11 @@ const Greeting = ({currentUser, logout }) => {
   }
   const sessionLinks = () => (
     <header className ="header">
-      <img className ="logo" src='/assets/images/slickr-logo.png' />
+      <img className ="logo" src='/assets/images/logo_invert.png' />
       <nav className = "login-signup">
-        <Link to="/login">Login</Link>
+        <span className="login">
+          <Link to="/login">Log In</Link>
+        </span>
         <button className="signup">
           <Link to="/signup">Sign Up</Link>
         </button>

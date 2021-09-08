@@ -14,11 +14,11 @@ import Footer from "./footer/footer";
 
 const App = () => (
   <div>
-    <Route path="/" component={GreetingContainer} />
-
+      <Route path="/" component={GreetingContainer} />
+      
+      <Route exact path="/" component={HomePageContainer} />
       <Route path="/login" component={LoginFormContainer} />
       <Route path="/signup" component={SignupFormContainer} />  
-      <Route exact path="/" component={HomePageContainer} />
 
     <Switch>
       <Route exact path="/feed" component={FeedContainer} />
