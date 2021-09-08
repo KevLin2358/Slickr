@@ -1,0 +1,42 @@
+.header{
+  background: rgba(0,0,0,0.25);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo{
+  width:50px;
+  height:50px;
+}
+
+.login-signup {
+  justify-content: flex-end;
+}
+
+button {
+  border-radius: 5px;
+  border: white;
+}
+
+.signup{
+  font-size: 15px;
+  font-weight: bold;
+}
+
+button > a{
+  color:black;
+}
+
+button:hover > a{
+  color:rgb(114, 118, 121);
+}
+
+.signup{
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 15px;
+}

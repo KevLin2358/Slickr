@@ -1,0 +1,15 @@
+.footer-nav {
+  position: fixed;
+  text-align: center;
+  bottom: 0px;
+  width: 100%;
+  height: 2.3rem;
+  background-color: black;
+
+}
+
+.footer-icon-links img{
+  width: 25px;
+  height: 25px;
+  padding: 10px;
+}

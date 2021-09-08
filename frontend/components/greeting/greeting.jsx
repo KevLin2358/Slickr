@@ -6,7 +6,8 @@ const Greeting = ({currentUser, logout }) => {
     logout();
   }
   const sessionLinks = () => (
-    <header class ="header">
+    <header className ="header">
+      <img className ="logo" src='/assets/images/slickr-logo.png' />
       <nav className = "login-signup">
         <Link to="/login">Login</Link>
         <button className="signup">
@@ -17,7 +18,7 @@ const Greeting = ({currentUser, logout }) => {
 
   );
   const personalGreeting = () => (
-    <div className="header-group">
+    <div className="header">
       <h2>Hi, {currentUser.username}!</h2>
       <Link onClick={handleSubmit} to="/">Log Out</Link>
     </div>

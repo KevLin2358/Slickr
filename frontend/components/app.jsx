@@ -10,22 +10,22 @@ import HomePageContainer from "./homepage/homepage_container";
 import GreetingContainer from "./greeting/greeting_container";
 import SignupFormContainer from './session_form/signup_form_container';
 import LoginFormContainer from './session_form/login_form_container';
+import Footer from "./footer/footer";
 
 const App = () => (
   <div>
     <Route path="/" component={GreetingContainer} />
-    
-    <Route exact path="/" component={HomePageContainer} />
-    <Route path="/login" component={LoginFormContainer} />
-    <Route path="/signup" component={SignupFormContainer} />
+
+      <Route path="/login" component={LoginFormContainer} />
+      <Route path="/signup" component={SignupFormContainer} />  
+      <Route exact path="/" component={HomePageContainer} />
 
     <Switch>
       <Route exact path="/feed" component={FeedContainer} />
     </Switch>
 
-    <footer className="footer">
+    <Footer />
 
-    </footer>
   </div>
 );
 
