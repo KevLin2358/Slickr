@@ -59,7 +59,7 @@ class SessionForm extends React.Component {
       <div className="form-container">
         {loggedIn}
         <form onSubmit={this.handleSubmit} className="form-box">
-          <img className ="logo" src='/assets/images/logo_only.png' />
+          <img className ="logo" src="<%= image_url('logo_only.png') %>" />
           <p className="form-header">Sign up for Slickr</p>
           <div className = "session-form-errors">
             {this.renderErrors()}
@@ -121,7 +121,7 @@ class SessionForm extends React.Component {
         <div className ="login">
           <form onSubmit={this.handleSubmit} className="form-box">
           
-          <img className ="logo" src='/assets/images/logo_only.png' />
+          <img className ="logo" src="<%= image_url('logo_only.png') %>"/>
           <p className="form-header">Log in to Slickr</p>
 
           <div className = "session-form-errors">

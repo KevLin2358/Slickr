@@ -7,7 +7,7 @@ const Greeting = ({currentUser, logout }) => {
   }
   const sessionLinks = () => (
     <header className ="header">
-      <img className ="logo" src='/assets/images/logo_invert.png' />
+      <img className ="logo" src="<%= image_url('logo_invert.png') %>" />
       <nav className = "login-signup">
         <span className="login">
           <Link to="/login">Log In</Link>
