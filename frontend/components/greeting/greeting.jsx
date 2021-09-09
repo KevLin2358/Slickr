@@ -20,7 +20,7 @@ const Greeting = ({currentUser, logout }) => {
 
   );
   const personalGreeting = () => (
-    <div className="header">
+    <div className="header-loggedin">
       <h2>Hi, {currentUser.username}!</h2>
       <Link onClick={handleSubmit} to="/">Log Out</Link>
     </div>

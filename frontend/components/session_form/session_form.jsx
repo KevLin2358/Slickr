@@ -1,5 +1,6 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+
 
 class SessionForm extends React.Component {
   
@@ -47,7 +48,7 @@ class SessionForm extends React.Component {
 
   demoLogin(e){
     e.preventDefault();
-    const demo = {username: "demo", password: "demodemo"}
+    const demo = {email: "abcdefg", password: "abcdefg"}
     this.props.processDemo(demo);
   }
 
@@ -55,53 +56,58 @@ class SessionForm extends React.Component {
     const loggedIn = this.props.sessionId ? <Redirect to="/feed" /> : null
 
     return (
-      <div className="signup-form-container">
+      <div className="form-container">
         {loggedIn}
-        <form onSubmit={this.handleSubmit} className="signup-form-box">
+        <form onSubmit={this.handleSubmit} className="form-box">
+          <img className ="logo" src='/assets/images/logo_only.png' />
+          <p className="form-header">Sign up for Slickr</p>
           <div className = "session-form-errors">
             {this.renderErrors()}
           </div>
-          <label>First name:
-            <input type="text"
-              value={this.state.first_name}
-              onChange={this.update('first_name')}
-              className="signup-input"
-            />
-          </label>
+          <input type="text"
+            value={this.state.first_name}
+            onChange={this.update('first_name')}
+            className="signup-input"
+            placeholder="First Name"
+          />
 
-          <label>Last name:
-            <input type="text"
-              value={this.state.last_name}
-              onChange={this.update('last_name')}
-              className="signup-input"
-            />
-          </label>
+          <input type="text"
+            value={this.state.last_name}
+            onChange={this.update('last_name')}
+            className="signup-input"
+            placeholder="Last Name"
+          />
 
-          <label>Email:
-            <input type="text"
-              value={this.state.email}
-              onChange={this.update('email')}
-              className="signup-input"
-            />
-          </label>
+          <input type="text"
+            value={this.state.email}
+            onChange={this.update('email')}
+            className="signup-input"
+            placeholder="Email"
+          />
 
-          <label>Username:
-            <input type="text"
-              value={this.state.username}
-              onChange={this.update('username')}
-              className="signup-input"
-            />
-          </label>
+          <input type="text"
+            value={this.state.username}
+            onChange={this.update('username')}
+            className="signup-input"
+            placeholder="Username"
 
-          <label>Password:
-            <input type="password"
-              value={this.state.password}
-              onChange={this.update('password')}
-              className="signup-input"
-            />
-          </label>
+          />
 
-          <input className="session-submit" type="submit" value={this.props.formType} />
+          <input type="password"
+            value={this.state.password}
+            onChange={this.update('password')}
+            className="signup-input"
+            placeholder="Password"
+          />
+
+          <div className="button-input">
+            <input className="session-submit" type="submit" value={this.props.formType} />
+          </div>
+          <div>
+            <p className="session-redirect">
+              Already a Slickr member? <Link to="/login">Log in here.</Link>
+            </p>
+          </div>
         </form>
       </div>
     );
@@ -110,42 +116,47 @@ class SessionForm extends React.Component {
   loginForm(){
     const loggedIn = this.props.sessionId ? <Redirect to="/feed" /> : null
     return (
-      <div className="login-form-container">
+      <div className="form-container">
         {loggedIn}
-        <form onSubmit={this.handleSubmit} className="login-form-box">
+        <div className ="login">
+          <form onSubmit={this.handleSubmit} className="form-box">
+          
+          <img className ="logo" src='/assets/images/logo_only.png' />
+          <p className="form-header">Log in to Slickr</p>
+
           <div className = "session-form-errors">
-            {this.renderErrors()}
+              {this.renderErrors()}
           </div>
-          <div className="login-form">
-
-            <label>Username:
-              <input type="text"
-                value={this.state.username}
-                onChange={this.update('username')}
-                className="login-input"
-              />
-            </label>
-
-            <label>Password:
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                className="login-input"
-              />
-            </label>
-
+            <input type="text"
+              value={this.state.email}
+              onChange={this.update('email')}
+              className="login-input"
+              placeholder="Email Address"
+            />
+            <input type="password"
+              value={this.state.password}
+              onChange={this.update('password')}
+              className="login-input"
+              placeholder="Password"
+            />
+          <div className="button-input">
             <input className="session-submit" type="submit" value={this.props.formType} />
-            <input className="session-submit" type="submit" value="Demo Login" onClick={this.demoLogin}/>
-
+            <input className="session-demo" type="submit" value="Demo Login" onClick={this.demoLogin}/>
+          </div>
+          <div>
+            <p className="session-redirect">
+              Not a Slickr member? <Link to="/signup">Sign up here.</Link>
+            </p>
           </div>
         </form>
+        </div>
       </div>
     );
   }
 
   render() {
     
-    if(this.props.formType == 'login'){
+    if(this.props.formType == 'Login'){
       return this.loginForm();
     }
     else{

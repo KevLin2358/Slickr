@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
 }
 
 .logo{
@@ -30,10 +31,12 @@ button {
 
 button > a{
   color:black;
+  font-size: 16px;
 }
 
 .login a{
   color:white;
+  font-size: 20px;
 }
 
 button:hover > a{
@@ -45,6 +48,14 @@ button:hover > a{
   padding-bottom: 7px;
   padding-left: 20px;
   padding-right: 20px;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: bold;
+}
+
+p{
+  font-size: 16px;
+}
+
+::placeholder {
+  font-size: 16;
 }

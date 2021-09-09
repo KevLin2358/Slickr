@@ -1,4 +1,91 @@
-.session-form-errors > ul > li{
-  color: red;
+.form-container{
+  background: url(
+    https://i.pinimg.com/originals/93/b2/41/93b24188e3e04350e236c5376c99e247.jpg
+  );
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  background-position: 50%;
+  overflow: hidden;
+  position: fixed;
+
+  z-index: -99;
 }
 
+.form-box{
+  position: relative;
+  margin: 0 auto;
+  top: 150px;
+  bottom: 100px;
+  align-items: center;
+  width: 300px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.login .form-box{
+  top: 200px;
+  width: 300px;
+  height: 400px;
+
+}
+
+.form-box input{
+  display: block;
+  width: 200px;
+  padding: 10px;
+  border-radius: 5px;
+  margin:10px;
+}
+
+.button-input input{
+  background-color: #128fdc;
+  border: black;
+  color: white;
+  font-weight: bold;
+  width: 225px;
+  height: 30px;
+  font-size: 16px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.button-input input:hover{
+  background-color: #159cf0;
+}
+
+.session-form-errors > ul > li{
+  margin-top: 5px;
+  padding-left: 5px;
+  color: red;
+  font-size: 16px;
+}
+
+.session-redirect{
+  margin-top: 10px;
+  border-style: solid;
+  font-size: 16px;
+}
+
+div .session-redirect a{
+  margin-top: 5px;
+  font-size: 16px;
+  color:blue;
+}
+
+.form-header{
+  color:#212124;
+}
+input{
+  border: 1px solid grey;
+  outline: none;
+
+}
+input:focus {
+  border: 1px solid lightskyblue;
+}
