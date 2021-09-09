@@ -34,3 +34,5 @@ bundle.js.map
 npm-debug.log
 
 defaultLogin.txt
+
+/config/credentials/development.key
