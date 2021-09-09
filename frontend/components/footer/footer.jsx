@@ -4,9 +4,8 @@ const Footer = () => (
   <footer className="footer-nav">
     <div>About Me</div>
     <div>Portfolio</div>
-    <img className ="github" src="<%= image_url('github.png') %>"/>
-     
-    <img className ="linkedin" src="<%= image_url('linkedin.png') %>" />
+    <img className ="github" src='app/assets/images/github.png' />
+    <img className ="linkedin" src='app/assets/images/linkedin.png' />
   </footer>
 )
 
