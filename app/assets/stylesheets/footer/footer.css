@@ -1,0 +1,26 @@
+.footer-nav {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  display: flex;
+}
+
+.footer-nav div{
+  color:white;
+  display: inline-block;
+  padding-top: 15px;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-size: 16px;
+}
+
+.footer-nav img{
+  width: 25px;
+  height: 25px;
+  text-align: end;
+  padding-top: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
