@@ -59,7 +59,8 @@ class SessionForm extends React.Component {
       <div className="form-container">
         {loggedIn}
         <form onSubmit={this.handleSubmit} className="form-box">
-          <img className ="logo" src='app/assets/images/logo_only.png' />
+          {/* <img className ="logo" src='app/assets/images/logo_only.png' /> */}
+          <img className ="logo" src='https://cdn3.iconfinder.com/data/icons/ultimate-social/150/48_github-512.png' />
           <p className="form-header">Sign up for Slickr</p>
           <div className = "session-form-errors">
             {this.renderErrors()}
@@ -121,24 +122,27 @@ class SessionForm extends React.Component {
         <div className ="login">
           <form onSubmit={this.handleSubmit} className="form-box">
           
-          <img className ="logo" src='app/assets/images/logo_only.png' />
+          {/* <img className ="logo" src='app/assets/images/logo_only.png' /> */}
+          <img className ="logo" src='https://cdn3.iconfinder.com/data/icons/ultimate-social/150/48_github-512.png' />
           <p className="form-header">Log in to Slickr</p>
 
           <div className = "session-form-errors">
               {this.renderErrors()}
           </div>
-            <input type="text"
-              value={this.state.email}
-              onChange={this.update('email')}
-              className="login-input"
-              placeholder="Email Address"
-            />
-            <input type="password"
-              value={this.state.password}
-              onChange={this.update('password')}
-              className="login-input"
-              placeholder="Password"
-            />
+          <input type="text"
+            value={this.state.email}
+            onChange={this.update('email')}
+            className="login-input"
+            placeholder="Email Address"
+          />
+
+          <input type="password"
+            value={this.state.password}
+            onChange={this.update('password')}
+            className="login-input"
+            placeholder="Password"
+          />
+
           <div className="button-input">
             <input className="session-submit" type="submit" value={this.props.formType} />
             <input className="session-demo" type="submit" value="Demo Login" onClick={this.demoLogin}/>

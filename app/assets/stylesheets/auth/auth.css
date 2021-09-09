@@ -1,6 +1,7 @@
+/* https://i.pinimg.com/originals/93/b2/41/93b24188e3e04350e236c5376c99e247.jpg */
 .form-container{
   background: url(
-    https://i.pinimg.com/originals/93/b2/41/93b24188e3e04350e236c5376c99e247.jpg
+    https://www.desktopbackground.org/download/o/2011/07/09/231547_beach-hq-wallpapers-and-pictures_2880x1800_h.jpg
   );
   background-size: cover;
   width: 100%;
@@ -16,10 +17,8 @@
   position: relative;
   margin: 0 auto;
   top: 150px;
-  bottom: 100px;
   align-items: center;
-  width: 300px;
-  height: 600px;
+  width: 25%;
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -27,16 +26,15 @@
 }
 
 .login .form-box{
-  top: 200px;
-  width: 300px;
-  height: 400px;
-
+  top: 300px;
+  width: 400px;
+  height: 75%;
 }
 
 .form-box input{
   display: block;
-  width: 200px;
-  padding: 10px;
+  width: 250px;
+  padding: 1.7rem 1rem .45rem 1rem;
   border-radius: 5px;
   margin:10px;
 }
@@ -46,8 +44,8 @@
   border: black;
   color: white;
   font-weight: bold;
-  width: 225px;
-  height: 30px;
+  width: 300px;
+  height: 50px;
   font-size: 16px;
   padding-top: 7px;
   padding-bottom: 7px;
@@ -61,13 +59,14 @@
 
 .session-form-errors > ul > li{
   margin-top: 5px;
-  padding-left: 5px;
+  text-align: center;
   color: red;
   font-size: 16px;
 }
 
-.session-redirect{
+div .session-redirect{
   margin-top: 10px;
+  margin-bottom: 10px;
   border-style: solid;
   font-size: 16px;
 }
@@ -88,4 +87,15 @@ input{
 }
 input:focus {
   border: 1px solid lightskyblue;
+}
+
+::placeholder{
+  position: relative;
+  bottom: 10px;
+}
+
+input:focus::placeholder{
+  bottom: 30px;
+  font-size: 12px;
+  color: lightskyblue;
 }

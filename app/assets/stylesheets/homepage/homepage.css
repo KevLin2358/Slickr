@@ -1,7 +1,4 @@
 .homepage{
-  background: url(
-    https://www.teahub.io/photos/full/60-600816_beach-sunset-wallpaper-hd-hd-desktop-backgrounds-beach.jpg
-    );
   position: relative;
   background-size: cover;
   width: 100%;
@@ -11,6 +8,18 @@
   position: fixed;
 
   z-index: -99;
+
+  animation-name: example;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes example {
+  0%   {background: url(https://jooinn.com/images/beach-during-sunset.jpg); background-size: cover;}
+  25%  {background: url(https://www.pixelstalk.net/wp-content/uploads/2016/08/Sunset-Beaches-Backgrounds.jpg); background-size: cover;}
+  50%  {background: url(https://www.wallpapertip.com/wmimgs/7-71769_beach-sunset-background-hd-background-wallpaper-16-sunset.jpg); background-size: cover;}
+  75%  {background: url(https://cdn.wallpapersafari.com/41/88/P9GZbo.jpg); background-size: cover;}
+  100% {background: url(https://jooinn.com/images/beach-during-sunset.jpg); background-size: cover;}
 }
 
 .home-text{
@@ -21,7 +30,7 @@
   margin: 0 auto;
   max-width: 620px;
   height: 100%;
-  padding-top: 250px;
+  padding-top: 450px;
 }
 
 
