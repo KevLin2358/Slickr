@@ -23,15 +23,13 @@
 }
 
 .home-text{
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  top: 40%;
   color: white;
   text-align: center;
   margin: 0 auto;
   max-width: 620px;
-  margin-top: 450px;
+
   height: 100%;
 }
 
