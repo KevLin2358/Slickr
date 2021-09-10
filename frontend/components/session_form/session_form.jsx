@@ -58,6 +58,7 @@ class SessionForm extends React.Component {
     return (
       <div className="form-container">
         {loggedIn}
+        <div className ="login">
         <form onSubmit={this.handleSubmit} className="form-box">
           {/* <img className ="logo" src='app/assets/images/logo_only.png' /> */}
           <img className ="logo" src='https://cdn3.iconfinder.com/data/icons/ultimate-social/150/48_github-512.png' />
@@ -110,6 +111,7 @@ class SessionForm extends React.Component {
             </p>
           </div>
         </form>
+        </div>
       </div>
     );
   }
