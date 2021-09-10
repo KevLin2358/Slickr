@@ -13,22 +13,19 @@
   z-index: -99;
 }
 
-.form-box{
+.login {
+  top: 25%;
   position: relative;
+}
+
+.form-box {
   margin: 0 auto;
-  top: 225px;
   align-items: center;
   width: 350px;
   display: flex;
   flex-direction: column;
   background-color: white;
   border-radius: 10px;
-}
-
-.login .form-box{
-  top: 300px;
-
-  height: 75%;
 }
 
 .form-box input{
@@ -100,3 +97,5 @@ input:focus::placeholder{
   font-size: 14px;
   color: lightskyblue;
 }
+
+
