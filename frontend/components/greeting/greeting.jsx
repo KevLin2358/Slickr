@@ -1,14 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import upload from '../../../app/assets/images/upload-icon.png'; 
+import logo_invert from '../../../app/assets/images/logo_invert.png'
 
 const Greeting = ({currentUser, logout }) => {
   const handleSubmit = () =>{
     logout();
   }
+
   const sessionLinks = () => (
     <header className ="header">
-      {/* <img className ="logo" src='app/assets/images/logo_invert.png' /> */}
-      <img className ="logo" src='https://cdn3.iconfinder.com/data/icons/ultimate-social/150/48_github-512.png' />
+      <img className ="logo" src={logo_invert} />
       <nav className = "login-signup">
         <span className="login">
           <Link to="/login">Log In</Link>
@@ -22,9 +24,18 @@ const Greeting = ({currentUser, logout }) => {
   );
   const personalGreeting = () => (
     <div className="header-loggedin">
-      <h2>Hi, {currentUser.username}!</h2>
-      <Link onClick={handleSubmit} to="/">Log Out</Link>
-    </div>
+      {/* <Link to="/explore">Explore</Link> */}
+      <img className ="logo" src={logo_invert} />
+        <Link to="/feed">Feed</Link>
+
+        <Link to="/upload"> 
+          <img className="upload-img" src={upload} alt="upload"/>        
+        </Link>
+
+        <div className="log-out-link">
+          <Link onClick={handleSubmit} to="/">Log Out</Link>
+        </div>
+      </div>
   );
 
   return currentUser ? personalGreeting() : sessionLinks();

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
-
+import logo_only from '../../../app/assets/images/logo_only.png'; 
 
 class SessionForm extends React.Component {
   
@@ -31,7 +31,6 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
-    console.log(this.props)
   }
 
   renderErrors() {
@@ -60,8 +59,7 @@ class SessionForm extends React.Component {
         {loggedIn}
         <div className ="login">
         <form onSubmit={this.handleSubmit} className="form-box">
-          {/* <img className ="logo" src='app/assets/images/logo_only.png' /> */}
-          <img className ="logo" src='https://cdn3.iconfinder.com/data/icons/ultimate-social/150/48_github-512.png' />
+          <img className ="logo" src={logo_only} />
           <p className="form-header">Sign up for Slickr</p>
           <div className = "session-form-errors">
             {this.renderErrors()}
@@ -124,8 +122,7 @@ class SessionForm extends React.Component {
         <div className ="login">
           <form onSubmit={this.handleSubmit} className="form-box">
           
-          {/* <img className ="logo" src='app/assets/images/logo_only.png' /> */}
-          <img className ="logo" src='https://cdn3.iconfinder.com/data/icons/ultimate-social/150/48_github-512.png' />
+          <img className ="logo" src={logo_only} />
           <p className="form-header">Log in to Slickr</p>
 
           <div className = "session-form-errors">

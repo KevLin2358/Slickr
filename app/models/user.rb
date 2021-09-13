@@ -17,6 +17,10 @@ class User < ApplicationRecord
   validates :username, :session_token, :email, presence: true, uniqueness: true
   validates :first_name, :last_name, presence: true
   validates :password, length: {minimum: 6, allow_nil: true}
+  
+  has_many :photos,
+    foreign_key: :uploader_id,
+    class_name: :Photo
 
   after_initialize :ensure_session_token
   attr_reader :password

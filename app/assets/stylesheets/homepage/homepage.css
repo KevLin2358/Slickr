@@ -8,18 +8,19 @@
   position: fixed;
 
   z-index: -99;
-
   animation-name: example;
+  animation-delay: 0s;
   animation-duration: 40s;
+  animation-timing-function: ease-out;
   animation-iteration-count: infinite;
 }
 
 @keyframes example {
-  0%   {background: url(https://jooinn.com/images/beach-during-sunset.jpg); background-size: cover;}
-  25%  {background: url(https://www.pixelstalk.net/wp-content/uploads/2016/08/Sunset-Beaches-Backgrounds.jpg); background-size: cover;}
-  50%  {background: url(https://www.wallpapertip.com/wmimgs/7-71769_beach-sunset-background-hd-background-wallpaper-16-sunset.jpg); background-size: cover;}
-  75%  {background: url(https://cdn.wallpapersafari.com/41/88/P9GZbo.jpg); background-size: cover;}
-  100% {background: url(https://jooinn.com/images/beach-during-sunset.jpg); background-size: cover;}
+  0%   {background: url('./beach-during-sunset-1.jpeg'); background-size: cover;}
+  25%  {background: url('./beach-during-sunset-2.jpeg'); background-size: cover;}
+  50%  {background: url('./beach-during-sunset-3.jpeg'); background-size: cover;}
+  75%  {background: url('./beach-during-sunset-4.jpeg'); background-size: cover;}
+  100% {background: url('./beach-during-sunset-1.jpeg'); background-size: cover;}
 }
 
 .home-text{
@@ -29,7 +30,6 @@
   text-align: center;
   margin: 0 auto;
   max-width: 620px;
-
   height: 100%;
 }
 
