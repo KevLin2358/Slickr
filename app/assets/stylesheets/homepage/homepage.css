@@ -9,7 +9,6 @@
   
   z-index: -99;
   animation-name: example;
-  animation-delay: 4s;
   animation-duration: 40s;
   animation-timing-function: ease-out;
   animation-iteration-count: infinite;
