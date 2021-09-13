@@ -59,7 +59,7 @@ class UploadPhoto extends React.Component{
         (
           <div className="upload-screen">
             <div className="upload-box">
-              <div className="upload-text">You can upload photos</div>
+              <div className="upload-text">Upload a photo</div>
               <label className="photo-upload-button">Choose photo to upload
                 <input 
                   className="photo-upload"
