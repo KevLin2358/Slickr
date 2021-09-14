@@ -1,0 +1,1 @@
+json.parial! "api/tags/tag", tag: @tag

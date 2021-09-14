@@ -6,6 +6,7 @@ class UploadPhoto extends React.Component{
     super(props);
     this.state = {
       title: '',
+      tag_name: '',
       description: '',
       photoFile: null,
       photoURL: null,
@@ -37,7 +38,11 @@ class UploadPhoto extends React.Component{
 
   handleSubmit(e) {
     e.preventDefault();
+
     const formData = new FormData();
+
+    let tag = { photo_id: null, name: this.state.tag_name };
+
     formData.append('photo[title]', this.state.title);
     formData.append('photo[description]', this.state.description);
     formData.append('photo[file]', this.state.photoFile);
@@ -72,6 +77,7 @@ class UploadPhoto extends React.Component{
         ) : (
           <div className="upload-form-screen">
             <div className="upload-form">
+            
               <div className="title-description">
                 <div className="editing-header">Editing Photo:</div>
                 <div className="upload-input-box">
@@ -95,8 +101,8 @@ class UploadPhoto extends React.Component{
                   >
                   Upload photo!
                 </button>
-
               </div>
+
               <img className="upload-image-preview" src={this.state.photoURL}/>
             </div>
           </div>

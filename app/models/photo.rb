@@ -16,6 +16,10 @@ class Photo < ApplicationRecord
     foreign_key: :uploader_id,
     class_name: :User
 
+  has_many :tags,
+  foreign_key: :photo_id,
+  class_name: :Tag
+
   # active storage  
   has_one_attached :file
 
