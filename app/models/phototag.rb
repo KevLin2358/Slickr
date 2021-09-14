@@ -1,19 +1,14 @@
 # == Schema Information
 #
-# Table name: tags
+# Table name: phototags
 #
 #  id         :bigint           not null, primary key
+#  tag_id     :integer          not null
 #  photo_id   :integer          not null
-#  name       :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-class Tag < ApplicationRecord
-
-  validates :photo_id, :name, presence: true
-
-  belongs_to :photo,
-    foreign_key: :photo_id,
-    class_name: :Photo
+class Phototag < ApplicationRecord
+  validates :photo_id, :tag_id, presence: true
 
 end

@@ -6,7 +6,7 @@ class UploadPhoto extends React.Component{
     super(props);
     this.state = {
       title: '',
-      tag_name: '',
+      name: '',
       description: '',
       photoFile: null,
       photoURL: null,
@@ -41,8 +41,8 @@ class UploadPhoto extends React.Component{
 
     const formData = new FormData();
 
-    let tag = { photo_id: null, name: this.state.tag_name };
-
+    let tag = { photo_id: null, name: this.state.name };
+    // debugger
     formData.append('photo[title]', this.state.title);
     formData.append('photo[description]', this.state.description);
     formData.append('photo[file]', this.state.photoFile);
@@ -51,8 +51,20 @@ class UploadPhoto extends React.Component{
     this.props.createPhoto(formData)
     .then(
       res => {
+        console.log(res)
+        tag.photo_id = res.photo.id
+        // debugger
+        this.props.createTag(tag)
+          .then(res => {
+            // debugger
+            let phototag = {
+              photo_id: res.tag.photo_id,
+              tag_id: res.tag.id
+            }
+            this.props.createPhototag(phototag)
+          })
         this.props.history.push(`/photos/${res.photo.id}`)
-      }
+      },
     )
   }
 
@@ -93,6 +105,12 @@ class UploadPhoto extends React.Component{
                     value={this.state.description}
                     onChange={this.update('description')}
                     placeholder="Add a description"
+                  />
+                  <input 
+                    className="tag-input"
+                    value={this.state.name}
+                    onChange={this.update('name')}
+                    placeholder="Add a tag"
                   />
                 </div> 
                 <button 

@@ -1,8 +1,15 @@
 class Api::TagsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :ensure_logged_in, only: [:create]
 
   def index 
-    @tags = Tag.all
+    if( params[:id] )
+      @tags = Tag.where(photo_id: params[:id])
+    else 
+      @tags = Tag.all
+    end
+    
+    render :index
   end
 
   def show

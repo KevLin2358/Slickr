@@ -13,21 +13,21 @@ const receiveTag = tag => ({
   tag
 })
 
-export const fetchTags = () => dispatch (
+export const fetchTags = () => dispatch => (
   TagApiUtil.fetchTags()
   .then(
     res => dispatch(recieveAllTags(res))
   )
 )
 
-export const fetchTag = tag => dispatch (
+export const fetchTag = tag => dispatch => (
   TagApiUtil.fetchTag(tag)
   .then(
     res => dispatch(receiveTag(res))
   )
 )
 
-export const createTag = tag => dispatch(
+export const createTag = tag => dispatch =>(
   TagApiUtil.createTag(tag)
   .then(
     res => dispatch(receiveTag(res))
