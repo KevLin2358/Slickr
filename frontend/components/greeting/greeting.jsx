@@ -24,18 +24,18 @@ const Greeting = ({currentUser, logout }) => {
   );
   const personalGreeting = () => (
     <div className="header-loggedin">
-      {/* <Link to="/explore">Explore</Link> */}
-      <img className ="logo" src={logo_invert} />
-        <Link to="/feed">Feed</Link>
+      
+      <Link to="/feed"><img className ="logo" src={logo_invert} /></Link>
+      <Link to="/explore">Explore</Link>
 
-        <Link to="/upload"> 
-          <img className="upload-img" src={upload} alt="upload"/>        
-        </Link>
-
-        <div className="log-out-link">
-          <Link onClick={handleSubmit} to="/">Log Out</Link>
-        </div>
+      <Link to="/upload"> 
+        <img className="upload-img" src={upload} alt="upload"/>        
+      </Link>
+      <div>Hi {currentUser.username}!</div>
+      <div className="log-out-link">
+        <Link onClick={handleSubmit} to="/">Log Out</Link>
       </div>
+    </div>
   );
 
   return currentUser ? personalGreeting() : sessionLinks();

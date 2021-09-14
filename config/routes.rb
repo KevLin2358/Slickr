@@ -6,6 +6,9 @@ Rails.application.routes.draw do
       resources :photos, only: [:create]
     end
     resources :photos, only: [:show, :index]
+    resources :tags, only: [:index, :create, :show]
+    resources :phototags, only: [:index, :create, :show]
+
   end
 
   root to: 'static_pages#root'

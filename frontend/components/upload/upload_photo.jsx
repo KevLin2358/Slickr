@@ -6,6 +6,7 @@ class UploadPhoto extends React.Component{
     super(props);
     this.state = {
       title: '',
+      name: '',
       description: '',
       photoFile: null,
       photoURL: null,
@@ -37,7 +38,11 @@ class UploadPhoto extends React.Component{
 
   handleSubmit(e) {
     e.preventDefault();
+
     const formData = new FormData();
+
+    let tag = { photo_id: null, name: this.state.name };
+    // debugger
     formData.append('photo[title]', this.state.title);
     formData.append('photo[description]', this.state.description);
     formData.append('photo[file]', this.state.photoFile);
@@ -46,8 +51,20 @@ class UploadPhoto extends React.Component{
     this.props.createPhoto(formData)
     .then(
       res => {
+        console.log(res)
+        tag.photo_id = res.photo.id
+        // debugger
+        this.props.createTag(tag)
+          .then(res => {
+            // debugger
+            let phototag = {
+              photo_id: res.tag.photo_id,
+              tag_id: res.tag.id
+            }
+            this.props.createPhototag(phototag)
+          })
         this.props.history.push(`/photos/${res.photo.id}`)
-      }
+      },
     )
   }
 
@@ -72,6 +89,7 @@ class UploadPhoto extends React.Component{
         ) : (
           <div className="upload-form-screen">
             <div className="upload-form">
+            
               <div className="title-description">
                 <div className="editing-header">Editing Photo:</div>
                 <div className="upload-input-box">
@@ -88,6 +106,12 @@ class UploadPhoto extends React.Component{
                     onChange={this.update('description')}
                     placeholder="Add a description"
                   />
+                  <input 
+                    className="tag-input"
+                    value={this.state.name}
+                    onChange={this.update('name')}
+                    placeholder="Add a tag"
+                  />
                 </div> 
                 <button 
                   className="upload-submit"
@@ -95,8 +119,8 @@ class UploadPhoto extends React.Component{
                   >
                   Upload photo!
                 </button>
-
               </div>
+
               <img className="upload-image-preview" src={this.state.photoURL}/>
             </div>
           </div>

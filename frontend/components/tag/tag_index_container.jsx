@@ -1,10 +1,11 @@
 import { connect } from "react-redux";
-import { fetchPhotos } from "../../actions/photo_actions";
-import PhotoIndex from "./photo_index";
+import { fetchTags } from "../../actions/tag_actions";
+import TagIndex from "./tag_index";
 
 const mSTP = state => {
   return {
     photos: Object.values(state.entities.photos),
+    tags: Object.values(state.entities.tags),
     users: state.entities.users
   };
 }
@@ -12,8 +13,8 @@ const mSTP = state => {
 const mDTP = dispatch => {
   // debugger
   return {
-    fetchPhotos: () => dispatch(fetchPhotos())
+    fetchTags: () => dispatch(fetchTags())
   };
 }
 
-export default connect(mSTP, mDTP)(PhotoIndex);
+export default connect(mSTP, mDTP)(TagIndex);
