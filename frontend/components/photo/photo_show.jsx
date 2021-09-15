@@ -119,24 +119,22 @@ class PhotoShow extends React.Component{
         </div>
 
         <div className="photo-show-info">
-          <div className="photo-show-info-top">
-            <div className="photo-show-info-container">
-              {this.state.canEdit === false ? editButton : submitButton}
+          <div className="photo-show-info-container">
+            {this.state.canEdit === false ? editButton : submitButton}
 
-              <h1 className="photo-show-photographer">{uploader}</h1>
-              {titleEdited}
-              {descriptionEdited}
-            </div>
-            <div className="tag-show">
-              {deleteButton}
+            <h1>{uploader}</h1>
+            {titleEdited}
+            {descriptionEdited}
+          </div>
+          <div className="tag-show">
+            {deleteButton}
 
-              <div className="tag-list">
-                {result.map((tag) => {
-                  return (
-                    <div key={tag.id}>{tag.name}</div>
-                  )
-                })}
-              </div>
+            <div className="tag-list">
+              {result.map((tag) => {
+                return (
+                  <div key={tag.id}>{tag.name}</div>
+                )
+              })}
             </div>
           </div>
         </div>
