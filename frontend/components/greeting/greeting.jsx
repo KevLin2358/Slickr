@@ -25,7 +25,7 @@ const Greeting = ({currentUser, logout }) => {
   const personalGreeting = () => (
     <div className="header-loggedin">
       
-      <Link to="/feed"><img className ="logo" src={logo_invert} /></Link>
+      <Link to="/explore"><img className ="logo" src={logo_invert} /></Link>
       <Link to="/explore">Explore</Link>
 
       <Link to="/upload"> 

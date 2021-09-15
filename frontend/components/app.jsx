@@ -4,13 +4,14 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from "../util/route_util";
-import FeedContainer from "./feed/feed_container";
+// import { AuthRoute, ProtectedRoute } from "../util/route_util";
+// import FeedContainer from "./feed/feed_container";
 import HomePageContainer from "./homepage/homepage_container";
 import GreetingContainer from "./greeting/greeting_container";
 import SignupFormContainer from './session_form/signup_form_container';
 import LoginFormContainer from './session_form/login_form_container';
 import PhotoIndexContainer from './photo/photo_index_container';
+import PhotoShowContainer from './photo/photo_show.container'
 import UploadPhotoContainer from './upload/upload_photo_container';
 
 const App = () => (
@@ -20,11 +21,11 @@ const App = () => (
       <Route path="/login" component={LoginFormContainer} />
       <Route path="/signup" component={SignupFormContainer} />  
 
-      <Route path="/explore" component={PhotoIndexContainer} />
 
     <Switch>
+      <Route exact path="/explore" component={PhotoIndexContainer} />
+      <Route exact path="/photos/:id" component={PhotoShowContainer}/>
       <Route exact path="/upload" component={UploadPhotoContainer} />
-      <Route exact path="/feed" component={FeedContainer} />
     </Switch>
   </div>
 );
