@@ -7,36 +7,36 @@ class PhotoShow extends React.Component{
     this.state = {
       tagArray: [],
       uploader: "",
-      canEdit: false
+      editable: false
     }
 
     this.titleEdited = React.createRef();
     this.descriptionEdited = React.createRef();
+
     this.handleDelete = this.handleDelete.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
-    this.toggleCanEdit = this.toggleCanEdit.bind(this);
+    this.toggleEdit = this.toggleEdit.bind(this);
   }
 
   componentDidMount(){
     this.props.fetchPhoto(this.props.photoId)
+    //debugger
     this.props.fetchTags()
-      .then(tags => {this.setState({
-        tagArray: Object.values(tags.tags)
+      .then(res => {this.setState({
+        tagArray: Object.values(res.tags)
       })
     })
   }
 
   componentDidUpdate(prevProps){
+    //debugger
     if(prevProps.photoId !== this.props.photoId){
       this.props.fetchPhoto(this.props.photoId);
     }
+    //debugger
     if (prevProps.tags != this.props.tags) {
       this.setState({tagArray: this.props.tags})
     }
-  }
-
-  toggleCanEdit(){
-    this.state({canEdit: !this.state.canEdit})
   }
 
   handleEdit(e){
@@ -44,97 +44,124 @@ class PhotoShow extends React.Component{
     let editedTitle;
     let editedDescription;
 
-    if(this.state.canEdit){
+    if(this.state.editable){
       editedTitle = this.titleEdited.current.value;
       editedDescription = this.descriptionEdited.current.value;
     }
-    this.setState({canEdit: !this.state.canEdit})
-
+    //debugger
+    this.setState({editable: !this.state.editable})
+    //debugger
     let editedPhoto = { 
       photo: { id: this.props.photoId, title: editedTitle, description: editedDescription},
       id: this.props.photoId
     };
-
+    //debugger
     this.props.updatePhoto(editedPhoto)
       .then(() => this.props.fetchPhoto(this.props.photoId))
+    //debugger
   }
 
   handleDelete(e){
     e.preventDefault(e);
+    //debugger
     this.props.deletePhoto(this.props.photoId)
-      .then(() => this.props.history.push("/explore"))
+      .then(() => 
+      this.props.history.push("/explore")
+      )
+    //debugger
   }
 
+  toggleEdit(){
+    this.setState({editable: !this.state.editable})
+  }
+  
   render(){
-    const uploader_id = this.props.photo ? this.props.photo.uploader_id : "";
+    const {editable} = this.state
+    const {currentUserId, photoId, photo} = this.props
+
+    // const uploader_id = photo.uploader_id
+    const uploader_id = photo ? photo.uploader_id : "";
         
-    let result = [];
+    // tag holder
+    let res = [];
     
     this.state.tagArray.map(tag => {
-      if (this.props.photoId == tag.photo_id) {
-        result.push(tag)
+      if (photoId == tag.photo_id) {
+        res.push(tag)
       }
     });
     
     let editButton;
     let submitButton;
-    let deleteButton;
-    if (this.props.currentUserId === uploader_id) {
+    const isUploader = (currentUserId === uploader_id)
+    if (isUploader) {
       editButton = (
-        <button className="edit-photo-button" onClick={this.toggleCanEdit}>Edit</button>
+        <button className="edit-photo-button" onClick={this.toggleEdit}>Edit</button>
       )
-
       submitButton = (
         <button className="edit-photo-button" onClick={this.handleEdit}>Submit</button>
       )
-
-      deleteButton = (
-        <button className="delete-photo" onClick={this.handleDelete}>Delete Photo</button>
-      )
     } else {
-      deleteButton = "";
+      editButton="",
+      submitButton=""
     };
-
-    const photoUrl = this.props.photo ? this.props.photo.photoURL : ""; 
-    const uploader = this.props.photo ? this.props.photo.user.username : "";
-    const title = this.props.photo ? this.props.photo.title : "";
-    const description = this.props.photo ? this.props.photo.description : "";
-
-    let titleEdited = this.state.canEdit ? 
-      <input className="title-edited" type='text' ref={this.titleEdited} defaultValue={title} /> : 
-      <h1 className="title-not-edit">{title}</h1>;
-
-    let descriptionEdited = this.state.canEdit ? 
-      <textarea className="description-edited" type='text' ref={this.descriptionEdited} defaultValue={description} /> : 
-      <p className="description-not-edit">{description}</p>;
 
       return (
       <div>
-        <div>
-          <Link to="/explore">Back To explore</Link>
+        <div className="back-to-explore">
+          <Link to="/explore">Back to explore</Link>
         </div>
 
-        <div className="photo-show-container">
-          <img className="photo-show-img" src={photoUrl} />
+        <div className="show-img-container">
+          <img className="show-img" src={photo ? photo.photoURL : ""}/>
         </div>
 
-        <div className="photo-show-info">
-          <div className="photo-show-info-container">
-            {this.state.canEdit === false ? editButton : submitButton}
+        <div className="show-info">
+          <div className="show-info-container">
+            {editable === false ? 
+              editButton : submitButton
+            }
+            
+            <h1>{ photo ? photo.user.username : "" }</h1>
 
-            <h1>{uploader}</h1>
-            {titleEdited}
-            {descriptionEdited}
+            {editable ? 
+              <input 
+                className="title-edited" 
+                type='text' ref={this.titleEdited} 
+                defaultValue={photo ? photo.title : ""} 
+              /> 
+              : 
+              <h1 className="title-not-edit">
+                {photo ? photo.title : ""}
+              </h1>
+            }
+
+            {editable ? 
+              <textarea 
+                className="description-edited" 
+                type='text' 
+                ref={this.descriptionEdited} 
+                defaultValue={photo ? photo.description : ""} 
+              /> 
+              : 
+              <p className="description-not-edit">
+                {photo ? photo.description : ""}
+              </p>
+            }
           </div>
-          <div className="tag-show">
-            {deleteButton}
+          
+          {
+            isUploader ?
+            <button className="delete-photo" onClick={this.handleDelete}>Delete Photo</button> 
+            :
+            ""
+          }
 
+          <div className="show-tag">
             <div className="tag-list">
-              {result.map((tag) => {
-                return (
-                  <div key={tag.id}>{tag.name}</div>
-                )
-              })}
+              {res.map(tag => (
+                <div key={tag.id}>{tag.name}</div>
+              ))}
             </div>
           </div>
         </div>
