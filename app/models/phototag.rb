@@ -11,4 +11,5 @@
 class Phototag < ApplicationRecord
   validates :photo_id, :tag_id, presence: true
 
+  
 end
