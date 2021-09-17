@@ -68,7 +68,7 @@ class PhotoShow extends React.Component{
       .then(() => 
       this.props.history.push("/explore")
       )
-    //debugger
+    // debugger
   }
 
   toggleEdit(){
@@ -76,7 +76,7 @@ class PhotoShow extends React.Component{
   }
   
   render(){
-    const {editable} = this.state
+    const {editable, tagArray} = this.state
     const {currentUserId, photoId, photo} = this.props
 
     // const uploader_id = photo.uploader_id
@@ -85,7 +85,7 @@ class PhotoShow extends React.Component{
     // tag holder
     let res = [];
     
-    this.state.tagArray.map(tag => {
+    tagArray.map(tag => {
       if (photoId == tag.photo_id) {
         res.push(tag)
       }
@@ -93,43 +93,60 @@ class PhotoShow extends React.Component{
     
     let editButton;
     let submitButton;
+
     const isUploader = (currentUserId === uploader_id)
+    
     if (isUploader) {
       editButton = (
-        <button className="edit-photo-button" onClick={this.toggleEdit}>Edit</button>
+        <div className="edit-photo-button-container">
+          <button className="edit-photo-button" onClick={this.toggleEdit}>Edit</button>
+        </div>
       )
       submitButton = (
-        <button className="edit-photo-button" onClick={this.handleEdit}>Submit</button>
+        <div className="edit-photo-button-container">
+          <button className="edit-photo-button" onClick={this.handleEdit}>Submit</button>
+        </div>
       )
     } else {
       editButton="",
       submitButton=""
     };
 
-      return (
-      <div>
-        <div className="back-to-explore">
-          <Link to="/explore">Back to explore</Link>
-        </div>
+    return (
+      <div className="photo-show-container">
+        <div className="image-background">
+          <div className="back-to-explore">
+            <Link to="/explore">Back to explore</Link>
+          </div>
 
-        <div className="show-img-container">
-          <img className="show-img" src={photo ? photo.photoURL : ""}/>
+          <div className="show-img-container">
+            <img className="show-img" src={photo ? photo.photoURL : ""}/>
+          </div>
+
+          {
+            isUploader ?
+            <div className="delete-container">
+              <button className="delete-photo" onClick={this.handleDelete}>Delete Photo</button> 
+            </div>
+            :
+            ""
+          }
         </div>
 
         <div className="show-info">
           <div className="show-info-container">
-            {editable === false ? 
-              editButton : submitButton
-            }
             
-            <h1>{ photo ? photo.user.username : "" }</h1>
+            <h1 className="show-info-username">{ photo ? photo.user.username : "" }</h1>
 
             {editable ? 
+            <div class="title-edited-container">
               <input 
                 className="title-edited" 
-                type='text' ref={this.titleEdited} 
+                type='text' 
+                ref={this.titleEdited} 
                 defaultValue={photo ? photo.title : ""} 
               /> 
+            </div>
               : 
               <h1 className="title-not-edit">
                 {photo ? photo.title : ""}
@@ -148,19 +165,17 @@ class PhotoShow extends React.Component{
                 {photo ? photo.description : ""}
               </p>
             }
+
+            {editable === false ? 
+              editButton : submitButton
+            }
           </div>
-          
-          {
-            isUploader ?
-            <button className="delete-photo" onClick={this.handleDelete}>Delete Photo</button> 
-            :
-            ""
-          }
 
           <div className="show-tag">
+            <div className="tags-header">Tags</div>
             <div className="tag-list">
               {res.map(tag => (
-                <div key={tag.id}>{tag.name}</div>
+                <div className="tag-list-tags" key={tag.id}>{tag.name}</div>
               ))}
             </div>
           </div>

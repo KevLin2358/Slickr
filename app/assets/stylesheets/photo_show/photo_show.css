@@ -1,0 +1,120 @@
+.image-background{
+  width: 100%;
+
+  background-color: rgb(33, 33, 36);
+
+}
+
+.back-to-explore{
+  padding-top: 20px;
+}
+
+.back-to-explore a{
+  padding-left: 20px;
+  font-size: 14px;
+  color:white;
+}
+
+.show-img-container{
+  display: flex;
+  align-items: center;
+  height:1060px;
+
+}
+
+.show-img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  max-height: 80%;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  overflow: hidden;
+}
+
+.show-info{
+  width:1000px;
+  height:500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.photo-show-container button{
+  background-color: rgb(36, 154, 227);
+  border: solid 1px rgb(36, 154, 227);
+  color: white;
+  border-radius: 5px;
+}
+
+.photo-show-container button:hover{
+  background-color: rgb(36, 131, 189);
+}
+
+.delete-container{
+  display:flex;
+  justify-content: flex-end;
+}
+
+.tags-header{
+  display: flex;
+  justify-content: flex-end;
+  color: rgb(36, 154, 227);
+  font-size: 12px;
+  padding-right: 100px;
+  padding-bottom: 25px;
+}
+
+.tag-list{
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 70px;
+}
+
+.tag-list-tags{
+  background-color: rgb(198, 198, 198);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.tag-list-tags:hover{
+  background-color: rgb(116, 116, 116);
+  color:white;
+}
+
+.show-info{
+  padding-top: 20px;
+}
+
+.show-info-username{
+  padding-bottom: 20px;
+}
+
+.title-not-edit{
+  padding-bottom: 30px;
+}
+
+.description-not-edit{
+  padding-bottom: 20px;
+  border-bottom: solid rgb(58, 58, 58) 1px;
+  width: 500px;
+}
+
+.edit-photo-button-container{
+  padding-left: 450px;
+  padding-top: 20px;
+}
+
+.title-edited-container{
+  display: flex;
+  padding-bottom: 20px;
+}
+
+.title-edited{
+  width:300px;
+}
+
+.description-edited{
+  width:300px;
+  height: 100px;
+}

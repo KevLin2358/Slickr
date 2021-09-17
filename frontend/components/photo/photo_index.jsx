@@ -9,11 +9,11 @@ class PhotoIndex extends React.Component{
   render(){
     const {photos} = this.props
     return(
-      <div>
-        <div>
+      <div className="photo-index">
+        <div className="photo-index-header-explore">
           <h1>Explore</h1>
         </div>
-        <div className="photo-index">
+        <div className="photo-index-item">
           {
             photos.map(photo =>(
               <PhotoIndexItem

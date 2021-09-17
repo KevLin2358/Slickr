@@ -26,12 +26,16 @@ const Greeting = ({currentUser, logout }) => {
     <div className="header-loggedin">
       
       <Link to="/explore"><img className ="logo" src={logo_invert} /></Link>
-      <Link to="/explore">Explore</Link>
+      <div className="explore-container">
+        <Link to="/explore">Explore</Link>
+      </div>
 
-      <Link to="/upload"> 
-        <img className="upload-img" src={upload} alt="upload"/>        
-      </Link>
-      <div>Hi {currentUser.username}!</div>
+      <div className="current-user">Hi {currentUser.username}!</div>
+      <div className="upload-container">
+        <Link to="/upload"> 
+          <img className="upload-img" src={upload} alt="upload"/>        
+        </Link>
+      </div>
       <div className="log-out-link">
         <Link onClick={handleSubmit} to="/">Log Out</Link>
       </div>

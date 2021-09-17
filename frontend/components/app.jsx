@@ -22,11 +22,11 @@ const App = () => (
       <Route path="/signup" component={SignupFormContainer} />  
 
 
-    <Switch>
-      <Route exact path="/explore" component={PhotoIndexContainer} />
-      <Route exact path="/photos/:id" component={PhotoShowContainer}/>
-      <Route exact path="/upload" component={UploadPhotoContainer} />
-    </Switch>
+      <Switch>
+        <Route exact path="/explore" component={PhotoIndexContainer} />
+        <Route exact path="/photos/:id" component={PhotoShowContainer}/>
+        <Route exact path="/upload" component={UploadPhotoContainer} />
+      </Switch>
   </div>
 );
 

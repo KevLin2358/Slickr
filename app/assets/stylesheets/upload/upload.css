@@ -47,13 +47,18 @@
   height: 100%;
 }
 
+.upload-form{
+  display: flex;
+  column-gap: 40px;
+  padding: 20px;
+}
 
-.title-description{
+.photo-information{
   float: left;
   flex-direction:row;
-  width:200px;
+  width:250px;
   height:300px;
-  padding: 20px 10px 20px 10px;
+  padding: 20px 10px 20px 30px;
 
 }
 
@@ -66,7 +71,32 @@
 
 .upload-input-box{
   border: rgb(104, 104, 104) solid 2px;
+  padding-left:10px;
+}
 
+.title-and-description{
+
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
+.title-input{
+  width:215px;
+}
+.description-input{
+  width:215px;
+}
+.tag-input{
+  width:215px;
+}
+
+.title-input-container{
+  padding-bottom:5px;
+}
+
+
+.tag-div{
+  padding-bottom:20px;
 }
 
 .title-input::placeholder{
@@ -76,6 +106,7 @@
 .description-input::placeholder{
   bottom:0px;
 }
+
 .tag-input::placeholder{
   bottom:0px;
 }
@@ -83,12 +114,18 @@
 .upload-image-preview{
   float: left;
   border: 5px solid magenta;
-  width: 250px;
-  height: 200px;
+  width: 500px;
+  height: 400px;
+}
+
+.upload-submit-container{
+  padding-bottom: 20px;
 }
 
 .upload-submit{
   background-color: rgb(36, 154, 227);
   border: solid 1px rgb(36, 154, 227);
   color: white;
+  text-align: center;
 }
+

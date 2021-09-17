@@ -51,7 +51,7 @@ class UploadPhoto extends React.Component{
     this.props.createPhoto(formData)
     .then(
       res => {
-        console.log(res)
+        // console.log(res)
         tag.photo_id = res.photo.id
         // debugger
         this.props.createTag(tag)
@@ -69,7 +69,7 @@ class UploadPhoto extends React.Component{
   }
 
   render(){
-    console.log(this.state)
+    // console.log(this.state)
     return(
       <div>
       {!this.state.photoFile ? 
@@ -90,38 +90,50 @@ class UploadPhoto extends React.Component{
           <div className="upload-form-screen">
             <div className="upload-form">
             
-              <div className="title-description">
+              <div className="photo-information">
                 <div className="editing-header">Editing Photo:</div>
                 <div className="upload-input-box">
-                  <input 
-                    className="title-input"
-                    value={this.state.title}
-                    onChange={this.update('title')}
-                    placeholder="Add a title"
-                  />
-         
-                  <input 
-                    className="description-input"
-                    value={this.state.description}
-                    onChange={this.update('description')}
-                    placeholder="Add a description"
-                  />
-                  <input 
-                    className="tag-input"
-                    value={this.state.name}
-                    onChange={this.update('name')}
-                    placeholder="Add a tag"
-                  />
+                  <div className="title-and-description">
+                    <div className="title-input-container">
+                      <input 
+                        className="title-input"
+                        value={this.state.title}
+                        onChange={this.update('title')}
+                        placeholder="Add a title"
+                      />
+                    </div>
+
+          
+                    <input 
+                      className="description-input"
+                      value={this.state.description}
+                      onChange={this.update('description')}
+                      placeholder="Add a description"
+                    />
+                  </div>
+
+                  <div className="tag-div">
+                    <input 
+                      className="tag-input"
+                      value={this.state.name}
+                      onChange={this.update('name')}
+                      placeholder="Add a tag"
+                    />
+                  </div>
+
+                  <div className="upload-submit-container">
+                    <button 
+                      className="upload-submit"
+                      onClick={this.handleSubmit}
+                      >
+                      Upload photo!
+                    </button>
+                  </div>
                 </div> 
-                <button 
-                  className="upload-submit"
-                  onClick={this.handleSubmit}
-                  >
-                  Upload photo!
-                </button>
               </div>
 
-              <img className="upload-image-preview" src={this.state.photoURL}/>
+                <img className="upload-image-preview" src={this.state.photoURL}/> 
+
             </div>
           </div>
         )
