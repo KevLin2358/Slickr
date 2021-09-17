@@ -85,16 +85,30 @@ input:focus {
   border: 1px solid lightskyblue;
 }
 
-::placeholder{
+.signup-input::placeholder{
   right:2px;
   position: relative;
   bottom: 10px;
 }
 
-input:focus::placeholder{
+.login-input::placeholder{
+  right:2px;
+  position: relative;
+  bottom: 10px;
+}
+
+.signup-input:focus::placeholder{
   bottom: 20px;
   font-size: 14px;
   color: lightskyblue;
 }
+
+.login-input:focus::placeholder{
+  bottom: 20px;
+  font-size: 14px;
+  color: lightskyblue;
+}
+
+
 
 

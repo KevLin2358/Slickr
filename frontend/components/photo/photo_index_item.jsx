@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 const PhotoIndexItem = props =>{
   const {photo} = props
   return(
-    <div className="photo">      
-      <Link to={`/api/photos/${photo.id}`}>
+    <div className="photo-container">
+      <Link to={`/photos/${props.photo.id}`}>
         <img className="index-image-preview" src={photo.photoURL}/>
-        <span>{props.photo.title}</span>
       </Link>
-    </div>
+    </div>      
+
   )
 }
 

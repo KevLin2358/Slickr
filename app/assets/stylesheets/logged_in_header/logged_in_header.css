@@ -10,6 +10,7 @@
 
 .header-loggedin a{
   color: white;
+  padding-right: 20px;
 }
 
 .upload-img{
@@ -19,9 +20,18 @@
 
 .upload-img:hover{
   opacity: 50%;
+}
+
+.explore-container{
+  padding-left: 100px;
+  padding-right: 1100px;
+}
+
+.upload-container{
 
 }
 
-.log-out-link{
-
+.current-user{
+  padding-left: 450px;
+  padding-right: 20px;
 }

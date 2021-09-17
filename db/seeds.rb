@@ -15,5 +15,18 @@ demo1 = User.create!({
   password: 'demodemo'
 })
 
+demo2 = User.create!({
+  email: 'nick.fury@shield.com', 
+  first_name: 'Nick', 
+  last_name: 'Fury', 
+  username: 'gdsnakes', 
+  password: 'missingeye'
+})
 
-
+demo3 = User.create!({
+  email: 'zagerus@hell.com', 
+  first_name: 'Zagerus', 
+  last_name: 'Hades', 
+  username: 'prince_of_blood_zag', 
+  password: 'gottagetouttahere'
+})
