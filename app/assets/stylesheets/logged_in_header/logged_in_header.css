@@ -22,16 +22,24 @@
   opacity: 50%;
 }
 
-.explore-container{
-  padding-left: 100px;
-  padding-right: 1100px;
-}
-
-.upload-container{
-
+.header-user-info{
+  display: flex;
+  padding-left: 20px;
 }
 
 .current-user{
-  padding-left: 450px;
-  padding-right: 20px;
+  padding-right: 50px;
+}
+
+.upload-container{
+  padding-right: 25px;
+}
+
+.explore-container{
+  display: flex;
+  align-items: center;
+}
+
+.explore-link-container{
+  padding-left: 20px;
 }
