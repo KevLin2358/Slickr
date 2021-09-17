@@ -1,24 +1,23 @@
-# README
+# Slickr
+Live Demo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Slickr is a clone of a social image hosting website called flickr. The site allows users to save and share their photos with others around the world.
 
-Things you may want to cover:
+## Technology
+* Ruby on Rails
+* PostgreSQL
+* Rails Active Storage with Amazon's S3
+* React.js
+* Redux
 
-* Ruby version
+# Core Features
 
-* System dependencies
+* Photos
+  * Users are able to upload images
+  * All photos are shown in explore
+  * Photo owners are able to edit their photos
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Possible Future Features
+* Comments
+* User Album
+* Search
