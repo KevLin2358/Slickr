@@ -17,9 +17,13 @@ class Photo < ApplicationRecord
     class_name: :User
 
   has_many :tags,
-  foreign_key: :photo_id,
-  class_name: :Tag
+    foreign_key: :photo_id,
+    class_name: :Tag
 
+  has_many :comments,
+    foreign_key: :photo_id,
+    class_name: :Comment
+  
   # active storage  
   has_one_attached :file
 
