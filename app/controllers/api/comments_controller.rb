@@ -2,17 +2,20 @@ class Api::CommentsController < ApplicationController
   skip_before_action :verify_authenticity_token
     
   before_action :ensure_logged_in, only: [:create, :destroy]
-  def index
-    if( params[:id] )
-      @comments = Comment.where(photo_id: params[:id])
-    else
-      @comments = Comment.all
-    end
 
+  def index
+    @photo = Photo.find(params[:photo_id])
+    @comments = @Photos.comments
     render :index
   end
 
+  def show 
+    @comment = Comment.find(params[:id])
+    render :show
+  end
+
   def create
+    @photo = Photo.find(params[:photo_id])
     @comment = Comment.new(comment_params)
 
     if @comment.save
@@ -23,9 +26,12 @@ class Api::CommentsController < ApplicationController
   end
 
   def destroy
+    @photo = Photo.find(params[:photo_id])
     @comment = Comment.find(params[:id])
-    if(@comment.commenter_id === current_user.id)
-      @comment.destroy
+    if @comment && @comment.destroy
+      render :show
+    else
+      render json: @comment.errors.full_messages, status: 422 
     end
   end
 
