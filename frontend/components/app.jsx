@@ -11,7 +11,7 @@ import GreetingContainer from "./greeting/greeting_container";
 import SignupFormContainer from './session_form/signup_form_container';
 import LoginFormContainer from './session_form/login_form_container';
 import PhotoIndexContainer from './photo/photo_index_container';
-import PhotoShowContainer from './photo/photo_show.container'
+import PhotoShowContainer from './photo/photo_show_container'
 import UploadPhotoContainer from './upload/upload_photo_container';
 
 const App = () => (

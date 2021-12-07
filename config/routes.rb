@@ -5,13 +5,11 @@ Rails.application.routes.draw do
     resources :users, only: [:create] do
       resources :photos, only: [:create]
     end
-    resources :photos, only: [ :index, :update, :destroy]
+
+    resources :photos, only: [:show, :index, :update, :destroy]
     resources :tags, only: [:index, :create, :show]
     resources :phototags, only: [:index, :create, :show]
-
-    resources :photos, only: [:show] do
-      resources :comments, only: [:create, :index, :show, :destroy]
-    end
+    resources :comments, only: [:show, :index, :create, :destroy]
   end
 
   root to: 'static_pages#root'

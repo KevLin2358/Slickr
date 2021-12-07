@@ -7,6 +7,10 @@ class PhotoShow extends React.Component{
     this.state = {
       tagArray: [],
       uploader: "",
+
+      commentArray: [],
+      body: "",
+
       editable: false
     }
 
@@ -16,16 +20,26 @@ class PhotoShow extends React.Component{
     this.handleDelete = this.handleDelete.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
     this.toggleEdit = this.toggleEdit.bind(this);
+
+    this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+    this.handleCommentDelete = this.handleCommentDelete.bind(this);
   }
 
   componentDidMount(){
     this.props.fetchPhoto(this.props.photoId)
+    
     //debugger
     this.props.fetchTags()
       .then(res => {this.setState({
         tagArray: Object.values(res.tags)
       })
     })
+
+    this.props.fetchComments(this.props.photoId)
+    .then(res => {this.setState({
+      commentArray: Object.values(res.comments)
+    })
+  })
   }
 
   componentDidUpdate(prevProps){
@@ -37,6 +51,15 @@ class PhotoShow extends React.Component{
     if (prevProps.tags != this.props.tags) {
       this.setState({tagArray: this.props.tags})
     }
+  }
+
+  handleCommentSubmit(e){
+    e.preventDefault();
+    let comment = { photo_id: this.props.photoId, commenter_id: this.props.currentUserId, body: this.state.body};
+    this.props.createComment(comment, this.props.photo_id)
+      .then(() =>
+      location.reload()
+      )
   }
 
   handleEdit(e){
@@ -71,26 +94,47 @@ class PhotoShow extends React.Component{
     // debugger
   }
 
+  handleCommentDelete(e, id){
+    e.preventDefault();
+    this.props.deleteComment(id)
+      .then(() =>
+      location.reload()
+      )
+  }
+
   toggleEdit(){
     this.setState({editable: !this.state.editable})
   }
-  
+
+  update(field) {
+    return e => this.setState({
+      [field]: e.currentTarget.value
+    });
+  }
+
   render(){
-    const {editable, tagArray} = this.state
+    const {editable, tagArray, commentArray} = this.state
     const {currentUserId, photoId, photo} = this.props
 
     // const uploader_id = photo.uploader_id
     const uploader_id = photo ? photo.uploader_id : "";
-        
+
     // tag holder
     let res = [];
-    
+    let res1 = [];
+
     tagArray.map(tag => {
       if (photoId == tag.photo_id) {
         res.push(tag)
       }
     });
-    
+
+    commentArray.map(comment => {
+      if (photoId == comment.photo_id) {
+        res1.push(comment)
+      }
+    });
+
     let editButton;
     let submitButton;
 
@@ -112,6 +156,8 @@ class PhotoShow extends React.Component{
       submitButton=""
     };
 
+    // debugger
+    
     return (
       <div className="photo-show-container">
         <div className="image-background">
@@ -177,6 +223,38 @@ class PhotoShow extends React.Component{
               {res.map(tag => (
                 <div className="tag-list-tags" key={tag.id}>{tag.name}</div>
               ))}
+            </div>
+          </div>
+
+          <div className="comment-section">
+            <div className="comment-header">Comments</div>
+            <div className="comment-submission">
+                <textarea
+                  className="comment-submission-text"
+                  type='text'
+                  value={this.state.body}
+                  onChange={this.update('body')}
+                  placeholder='type here....'
+                />
+                <button className="edit-photo-button" onClick={this.handleCommentSubmit}>Submit</button>
+            </div>
+            <div className="comment-list">
+              {res1.map(comment => 
+                (
+                  <div key={comment.id}>
+                    <div className="comment-list-comment-body" > {comment.body}</div> 
+                    <div className="comment-list-comment-username"> {comment.username}</div> 
+                    {
+                      comment.commenter_id === currentUserId ? 
+                      <div className="delete-comment-container">
+                        <button className="delete-comment" onClick={ e => (this.handleCommentDelete(e, comment.id))}>Delete Comment</button> 
+                      </div>
+                      : ""
+                    }
+                  </div>
+
+                )
+              )}
             </div>
           </div>
         </div>

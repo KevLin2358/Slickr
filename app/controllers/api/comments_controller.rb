@@ -4,8 +4,11 @@ class Api::CommentsController < ApplicationController
   before_action :ensure_logged_in, only: [:create, :destroy]
 
   def index
-    @photo = Photo.find(params[:photo_id])
-    @comments = @Photos.comments
+    if( params[:id] )
+      @comments = Comment.where(photo_id: params[:id])
+    else
+      @comments = Comment.all
+    end
     render :index
   end
 
@@ -15,7 +18,6 @@ class Api::CommentsController < ApplicationController
   end
 
   def create
-    @photo = Photo.find(params[:photo_id])
     @comment = Comment.new(comment_params)
 
     if @comment.save
@@ -26,12 +28,9 @@ class Api::CommentsController < ApplicationController
   end
 
   def destroy
-    @photo = Photo.find(params[:photo_id])
     @comment = Comment.find(params[:id])
-    if @comment && @comment.destroy
-      render :show
-    else
-      render json: @comment.errors.full_messages, status: 422 
+    if(@comment.commenter_id === current_user.id)
+      @comment.destroy
     end
   end
 

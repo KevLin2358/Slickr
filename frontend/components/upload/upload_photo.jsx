@@ -64,7 +64,7 @@ class UploadPhoto extends React.Component{
             this.props.createPhototag(phototag)
           })
         this.props.history.push(`/photos/${res.photo.id}`)
-      },
+      }
     )
   }
 
