@@ -5,11 +5,11 @@ export const RECEIVE_PHOTO = "RECEIVE_PHOTO";
 export const EDIT_PHOTO = "EDIT_PHOTO";
 export const REMOVE_PHOTO = "REMOVE_PHOTO";
 
-const receieveAllPhotos = photos => ({
+const receiveAllPhotos = photos => ({
   type: RECEIVE_ALL_PHOTOS,
   photos
 })
-const receievePhoto = photo => ({
+const receivePhoto = photo => ({
   type: RECEIVE_PHOTO,
   photo
 })
@@ -26,21 +26,21 @@ const removePhoto = () => ({
 export const fetchPhotos = () => dispatch => (
   PhotoApiUtil.fetchPhotos()
   .then(
-    res => dispatch(receieveAllPhotos(res))
+    res => dispatch(receiveAllPhotos(res))
   )
 )
 
 export const fetchPhoto = photo => dispatch => (
   PhotoApiUtil.fetchPhoto(photo)
   .then(
-    res => dispatch(receievePhoto(res))
+    res => dispatch(receivePhoto(res))
   )
 )
 
 export const createPhoto = photo => dispatch => (
   PhotoApiUtil.createPhoto(photo)
   .then(
-    res => dispatch(receievePhoto(res))
+    res => dispatch(receivePhoto(res))
   )
 )
 
