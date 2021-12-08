@@ -13,6 +13,8 @@ import LoginFormContainer from './session_form/login_form_container';
 import PhotoIndexContainer from './photo/photo_index_container';
 import PhotoShowContainer from './photo/photo_show_container'
 import UploadPhotoContainer from './upload/upload_photo_container';
+import SearchIndexContainer from './search/search_index_container';
+
 
 const App = () => (
   <div>
@@ -23,6 +25,7 @@ const App = () => (
 
 
       <Switch>
+        <Route exact path="/search" component={SearchIndexContainer}/>
         <Route exact path="/explore" component={PhotoIndexContainer} />
         <Route exact path="/photos/:id" component={PhotoShowContainer}/>
         <Route exact path="/upload" component={UploadPhotoContainer} />

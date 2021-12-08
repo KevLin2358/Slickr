@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import upload from '../../../app/assets/images/upload-icon.png'; 
-import logo_invert from '../../../app/assets/images/logo_invert.png'
-
+import logo_invert from '../../../app/assets/images/logo_invert.png';
+import Search from '../search/search_container';
 const Greeting = ({currentUser, logout }) => {
   const handleSubmit = () =>{
     logout();
@@ -35,6 +35,7 @@ const Greeting = ({currentUser, logout }) => {
       <div className="header-user-info">
         <div className="current-user">Hi {currentUser.username}!</div>
         <div className="upload-container">
+          <Search />
           <Link to="/upload"> 
             <img className="upload-img" src={upload} alt="upload"/>        
           </Link>
