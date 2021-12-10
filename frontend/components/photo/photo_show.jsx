@@ -11,6 +11,8 @@ class PhotoShow extends React.Component{
       commentArray: [],
       body: "",
 
+      likeArray: [],
+
       editable: false
     }
 
@@ -23,6 +25,9 @@ class PhotoShow extends React.Component{
 
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
     this.handleCommentDelete = this.handleCommentDelete.bind(this);
+
+    this.handleLikeSubmit = this.handleLikeSubmit.bind(this);
+    this.handleLikeDelete = this.handleLikeDelete.bind(this);
   }
 
   componentDidMount(){
@@ -35,11 +40,18 @@ class PhotoShow extends React.Component{
       })
     })
 
-    this.props.fetchComments(this.props.photoId)
-    .then(res => {this.setState({
-      commentArray: Object.values(res.comments)
+    this.props.fetchComments()
+      .then(res => {this.setState({
+        commentArray: Object.values(res.comments)
+      })
     })
-  })
+
+    // debugger
+    this.props.fetchLikes()
+      .then(res => {this.setState({
+        likeArray: Object.values(res.likes)
+      })})
+
   }
 
   componentDidUpdate(prevProps){
@@ -56,9 +68,18 @@ class PhotoShow extends React.Component{
   handleCommentSubmit(e){
     e.preventDefault();
     let comment = { photo_id: this.props.photoId, commenter_id: this.props.currentUserId, body: this.state.body};
-    this.props.createComment(comment, this.props.photo_id)
+    this.props.createComment(comment)
       .then(() =>
-      location.reload()
+        location.reload()
+      )
+  }
+
+  handleLikeSubmit(e){
+    e.preventDefault();
+    let like = {photo_id: this.props.photoId, liker_id: this.props.currentUserId};
+    this.props.createLike(like)
+      .then(() =>
+        location.reload()
       )
   }
 
@@ -98,8 +119,16 @@ class PhotoShow extends React.Component{
     e.preventDefault();
     this.props.deleteComment(id)
       .then(() =>
-      location.reload()
+        location.reload()
       )
+  }
+
+  handleLikeDelete(e, id){
+    e.preventDefault();
+    this.props.deleteLike(id)
+    .then(() =>
+      location.reload()
+    )
   }
 
   toggleEdit(){
@@ -113,7 +142,7 @@ class PhotoShow extends React.Component{
   }
 
   render(){
-    const {editable, tagArray, commentArray} = this.state
+    const {editable, tagArray, commentArray, likeArray} = this.state
     const {currentUserId, photoId, photo} = this.props
 
     // const uploader_id = photo.uploader_id
@@ -122,6 +151,7 @@ class PhotoShow extends React.Component{
     // tag holder
     let res = [];
     let res1 = [];
+    let res2 = [];
 
     tagArray.map(tag => {
       if (photoId == tag.photo_id) {
@@ -135,6 +165,33 @@ class PhotoShow extends React.Component{
       }
     });
 
+    likeArray.map(like => {
+      if(photoId == like.photo_id) {
+        res2.push(like)
+      }
+    })
+
+    let arrayForLike = [];
+    let currentDislike = undefined;
+    res2.map( like => {
+      arrayForLike.push(like.liker_id);
+      if(currentUserId === like.liker_id){
+        currentDislike = like.id
+      }
+    })
+    
+    let likeButton = (
+      <div className="like-button-container">
+        <button className="like-button" onClick={this.handleLikeSubmit}>Like</button>
+      </div> 
+    );
+
+    let dislikeButton = (
+      <div className="dislike-button-container">
+        <button className="dislike-button" onClick={ e => (this.handleLikeDelete(e, currentDislike))}>Dislike</button> 
+      </div>
+    );
+    
     let editButton;
     let submitButton;
 
@@ -215,6 +272,10 @@ class PhotoShow extends React.Component{
             {editable === false ? 
               editButton : submitButton
             }
+            <div className="like-section">
+              {res2.length}
+              {arrayForLike.includes(currentUserId) ? dislikeButton : likeButton}
+            </div>
           </div>
 
           <div className="show-tag">

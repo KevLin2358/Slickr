@@ -7,9 +7,14 @@ class Api::LikesController < ApplicationController
     if( params[:id] )
       @likes = Like.where(photo_id: params[:id])
     else
-      render json: ["no id found"], status: 404
+      @likes = Like.all
     end
     render :index
+  end
+
+  def show 
+    @like = Like.find(params[:id])
+    render :show
   end
 
   def create

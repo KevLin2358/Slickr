@@ -7,9 +7,14 @@ class Api::FollowsController < ApplicationController
     if( params[:id] )
       @follows = Follow.where(followee_id: params[:id])
     else
-      render json: ["no id found"], status: 404
+      @follows = Follow.all
     end
     render :index
+  end
+
+  def show 
+    @follow = Follow.find(params[:id])
+    render :show
   end
 
   def create
