@@ -23,6 +23,11 @@ class Photo < ApplicationRecord
   has_many :comments,
     foreign_key: :photo_id,
     class_name: :Comment
+
+  has_many :likes,
+    foreign_key: :photo_id,
+    class_name: :Like
+
   
   # active storage  
   has_one_attached :file

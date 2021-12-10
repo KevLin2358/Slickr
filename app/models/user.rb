@@ -25,6 +25,18 @@ class User < ApplicationRecord
   has_many :comments,
     foreign_key: :commenter_id,
     class_name: :Comment
+
+  has_many :likers,
+    foreign_key: :liker_id,
+    class_name: :Like
+
+  has_many :followers,
+    foreign_key: :follower_id,
+    class_name: :Follow
+
+  has_many :follows,
+    foreign_key: :followee_id,
+    class_name: :Follow
   
   after_initialize :ensure_session_token
   attr_reader :password
