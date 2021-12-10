@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :tags, only: [:index, :create, :show]
     resources :phototags, only: [:index, :create, :show]
     resources :comments, only: [:show, :index, :create, :destroy]
+    resources :follows, only: [:show, :create, :destroy, :index]
+    resources :likes, only: [:show, :create, :destroy, :index]
   end
 
   root to: 'static_pages#root'

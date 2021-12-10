@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_06_203831) do
+ActiveRecord::Schema.define(version: 2021_12_10_202626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,26 @@ ActiveRecord::Schema.define(version: 2021_12_06_203831) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["commenter_id"], name: "index_comments_on_commenter_id"
     t.index ["photo_id"], name: "index_comments_on_photo_id"
+  end
+
+  create_table "follows", force: :cascade do |t|
+    t.integer "followee_id", null: false
+    t.integer "follower_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["followee_id", "follower_id"], name: "index_follows_on_followee_id_and_follower_id", unique: true
+    t.index ["followee_id"], name: "index_follows_on_followee_id"
+    t.index ["follower_id"], name: "index_follows_on_follower_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "liker_id", null: false
+    t.integer "photo_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["liker_id"], name: "index_likes_on_liker_id"
+    t.index ["photo_id", "liker_id"], name: "index_likes_on_photo_id_and_liker_id", unique: true
+    t.index ["photo_id"], name: "index_likes_on_photo_id"
   end
 
   create_table "photos", force: :cascade do |t|
