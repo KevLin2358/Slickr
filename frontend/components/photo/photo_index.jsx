@@ -29,5 +29,4 @@ class PhotoIndex extends React.Component{
 
 }
 
-
 export default PhotoIndex;

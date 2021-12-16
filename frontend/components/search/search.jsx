@@ -1,6 +1,6 @@
 import React from 'react';
 import {withRouter, Redirect} from 'react-router-dom';
-
+import search_icon from '../../../app/assets/images/search_button.png'
 class Search extends React.Component{
 
   constructor(props){
@@ -37,16 +37,15 @@ class Search extends React.Component{
   render(){
     return(
       <div className='search-bar'>
-        <label className='search-label'></label>
         <input
           className='search-input'
           type="search"
-          placeholder="Photos"
+          placeholder="Name of photo"
           onChange={this.update("query")}
           onKeyPress={(e) => this.handleKeypress(e)}
         />
         
-        <button className="search-button" onClick={e => this.handleSubmit(e)}/>
+        <img className="search-button" onClick={e => this.handleSubmit(e)} src={search_icon} />
 
         {this.state.search ? 
           <Redirect to={{

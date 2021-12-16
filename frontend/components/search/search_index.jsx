@@ -30,22 +30,24 @@ class SearchIndex extends React.Component {
 
     if (query !== "" && filteredPhotoItem.length > 0) {
       return (
-        <div >
-            <div className='search-index'>
-                {filteredPhotoItem}
-            </div>
+        <div className='search-index'>
+          <div className="search-index-header">
+            <h1>Search</h1>
+          </div>
+          <div className="search-index-item">
+            {filteredPhotoItem}
+          </div>
         </div>
+
       )
     } else {
       return (
-        <div >
-          <div className='search-index-empty'>
-            <div className='no-search-top'>
-                {`No results ${query}`}
-            </div>
-            <div className='no-search-bottom'>
-                Try again?
-            </div>
+        <div className='search-index-empty'>
+          <div className='no-search-top'>
+              {`No results for "${query}"`}
+          </div>
+          <div className='no-search-bottom'>
+              Try again?
           </div>
         </div>
       )

@@ -1,0 +1,45 @@
+.search-index-header{
+  padding-top: 25px;
+  padding-left: 200px;
+  padding-bottom: 15px;
+  font-size: 24px;
+  color:grey;
+}
+
+.search-photo-container{
+  position: relative;
+  align-items: center;
+  padding-left:200px;
+  padding-right:200px;
+}
+
+.search-index{
+  width:100%;
+  overflow: scroll;
+}
+
+.search-index-image-preview{
+  float:left;
+  max-width: 100%;
+  height:300px;
+  padding:2px;
+}
+
+html{
+  background-color: rgb(243, 245, 246);
+}
+
+.search-index-empty{
+  text-align: center;
+  padding-top: 20%;
+  color: grey;
+}
+
+.no-search-top{
+  font-size: 50px;
+}
+
+.no-search-bottom{
+  padding-top: 5%;
+  font-size: 30px;
+}

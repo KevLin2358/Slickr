@@ -187,8 +187,8 @@ class PhotoShow extends React.Component{
     );
 
     let dislikeButton = (
-      <div className="dislike-button-container">
-        <button className="dislike-button" onClick={ e => (this.handleLikeDelete(e, currentDislike))}>Dislike</button> 
+      <div className="dislike-container">
+        <button className="delete" onClick={ e => (this.handleLikeDelete(e, currentDislike))}>Dislike</button> 
       </div>
     );
     
@@ -229,7 +229,7 @@ class PhotoShow extends React.Component{
           {
             isUploader ?
             <div className="delete-container">
-              <button className="delete-photo" onClick={this.handleDelete}>Delete Photo</button> 
+              <button className="delete" onClick={this.handleDelete}>Delete Photo</button> 
             </div>
             :
             ""
@@ -273,8 +273,13 @@ class PhotoShow extends React.Component{
               editButton : submitButton
             }
             <div className="like-section">
-              {res2.length}
-              {arrayForLike.includes(currentUserId) ? dislikeButton : likeButton}
+              <div className="like-number"> 
+                {res2.length} 
+                <span> likes</span>
+              </div>
+              <div> 
+                {arrayForLike.includes(currentUserId) ? dislikeButton : likeButton}
+              </div>
             </div>
           </div>
 
@@ -297,18 +302,18 @@ class PhotoShow extends React.Component{
                   onChange={this.update('body')}
                   placeholder='type here....'
                 />
-                <button className="edit-photo-button" onClick={this.handleCommentSubmit}>Submit</button>
+                <button className="comment-submit" onClick={this.handleCommentSubmit}>Submit</button>
             </div>
             <div className="comment-list">
               {res1.map(comment => 
                 (
-                  <div key={comment.id}>
-                    <div className="comment-list-comment-body" > {comment.body}</div> 
+                  <div className="comment-index-item" key={comment.id}>
                     <div className="comment-list-comment-username"> {comment.username}</div> 
+                    <div className="comment-list-comment-body" > {comment.body}</div> 
                     {
                       comment.commenter_id === currentUserId ? 
-                      <div className="delete-comment-container">
-                        <button className="delete-comment" onClick={ e => (this.handleCommentDelete(e, comment.id))}>Delete Comment</button> 
+                      <div className="delete-container">
+                        <button className="delete" onClick={ e => (this.handleCommentDelete(e, comment.id))}>Delete Comment</button> 
                       </div>
                       : ""
                     }

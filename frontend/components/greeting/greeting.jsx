@@ -32,10 +32,14 @@ const Greeting = ({currentUser, logout }) => {
         </div>
       </div>
 
+      <div className="search-container">
+        <Search />
+      </div>
+
       <div className="header-user-info">
         <div className="current-user">Hi {currentUser.username}!</div>
         <div className="upload-container">
-          <Search />
+          
           <Link to="/upload"> 
             <img className="upload-img" src={upload} alt="upload"/>        
           </Link>

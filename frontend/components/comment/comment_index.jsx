@@ -10,8 +10,7 @@ class CommentIndex extends React.Component{
   render(){
     const {comments} = this.props
     return(
-      <div>
-        <div>
+        <div className="comment-list">
           {
             comments.map(comment =>(
               <CommentIndexItem 
@@ -21,7 +20,6 @@ class CommentIndex extends React.Component{
             ))
           }
         </div>
-      </div>
     )
   }
 }
