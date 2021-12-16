@@ -15,9 +15,9 @@ Slickr is a clone of a social image hosting website called flickr. The site allo
 * Photos
   * Users are able to upload images
   * All photos are shown in explore
-  * Photo owners are able to edit their photos
+  * Photo owners are able to edit their photo title and description
+  * They are also able to delete their photo
+  * Other users are able to comment and like a photo
 
-# Possible Future Features
-* Comments
-* User Album
 * Search
+  * Users are able to search photos by name
