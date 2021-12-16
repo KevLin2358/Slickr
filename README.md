@@ -1,4 +1,4 @@
-<h1><a href="http://127.0.0.1:3000/#/"> Slickr </a><h1>
+<h1><a href="http://127.0.0.1:3000/#/"> Slickr </a></h1>
  
 <p>Table of Contents</p>
 <ul>
