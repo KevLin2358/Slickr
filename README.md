@@ -1,5 +1,6 @@
-# Slickr
-Live Demo
+#<a href="http://127.0.0.1:3000/#/"> Slickr </a>
+
+
 
 Slickr is a clone of a social image hosting website called flickr. The site allows users to save and share their photos with others around the world.
 
