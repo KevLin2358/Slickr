@@ -18,18 +18,15 @@
 .show-img-container{
   display: flex;
   align-items: center;
-  height:1060px;
-
+  min-height: 770px;
 }
 
 .show-img{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  max-width: 100%;
-  max-height: 80%;
-  padding-top: 20px;
-  padding-bottom: 50px;
+  max-width: 70%;
+  max-height: 70%;
   overflow: hidden;
 }
 
@@ -56,19 +53,25 @@
   justify-content: flex-end;
 }
 
+.show-tag{
+  float:right;
+  display: block;
+  width: 200px;
+  min-height: 200px;
+}
+
 .tags-header{
   display: flex;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
   color: rgb(36, 154, 227);
-  font-size: 12px;
-  padding-right: 150px;
-  padding-bottom: 25px;
+  font-size: 24px;
+  padding-bottom: 10px;
 }
 
 .tag-list{
   display: flex;
-  justify-content: flex-end;
-  padding-right: 70px;
+  /* justify-content: flex-end; */
+
 }
 
 .tag-list-tags{
@@ -96,13 +99,16 @@
 
 .description-not-edit{
   padding-bottom: 20px;
-  border-bottom: solid rgb(58, 58, 58) 1px;
+  /* border-bottom: solid rgb(58, 58, 58) 1px; */
   width: 500px;
 }
 
 .edit-photo-button-container{
+  width: 500px;
   padding-left: 450px;
   padding-top: 20px;
+  padding-bottom: 10px;
+
 }
 
 .title-edited-container{
@@ -117,4 +123,68 @@
 .description-edited{
   width:300px;
   height: 100px;
+}
+
+.delete-container .delete{
+  background-color: red;
+  border: solid 1px red;
+}
+
+.delete-container .delete:hover {
+  background-color: rgb(255, 74, 74);
+}
+
+.dislike-container .delete{
+  background-color: red;
+  border: solid 1px red;
+}
+
+.dislike-container .delete:hover {
+  background-color: rgb(255, 74, 74);
+}
+
+
+.comment-header {
+  color:grey;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.comment-submission-text{
+  width: 300px;
+  height: 45px;
+  float: left;
+}
+
+.comment-submit{
+  height: 51px;
+}
+
+.comment-index-item{
+  margin-top: 20px;
+  width: 500px;
+}
+
+.comment-index-item:hover{
+  background-color:rgb(203, 203, 203);
+}
+
+.delete-comment{
+  float: right;
+}
+
+.comment-list-comment-username{
+  color: rgb(36, 154, 227);
+}
+
+.like-section{
+  width: 500px;
+  padding-top: 20px;
+  border-top: solid rgb(58, 58, 58) 1px;
+}
+
+.like-number{
+  font-size: 20px;
+  float: left;
+  padding-right: 20px;
 }
