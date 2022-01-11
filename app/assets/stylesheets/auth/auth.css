@@ -7,7 +7,6 @@
   background-position: 50%;
   overflow: hidden;
   position: fixed;
-
   z-index: -99;
 }
 
@@ -54,7 +53,8 @@
 }
 
 .session-form-errors > ul > li{
-  margin-top: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   text-align: center;
   color: red;
   font-size: 16px;
