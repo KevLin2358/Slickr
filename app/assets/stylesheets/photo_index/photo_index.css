@@ -8,6 +8,7 @@
 
 .photo-index{
   overflow: scroll;
+  padding-bottom: 50px;
 }
 
 .photo-container{
