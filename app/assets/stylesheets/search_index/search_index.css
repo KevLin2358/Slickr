@@ -27,6 +27,7 @@
 
 html{
   background-color: rgb(243, 245, 246);
+  overflow: scroll;
 }
 
 .search-index-empty{
