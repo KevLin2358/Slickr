@@ -7,12 +7,11 @@
   background-position: 50%;
   overflow: hidden;
   position: fixed;
-
   z-index: -99;
 }
 
 .login {
-  top: 15%;
+  top: 10%;
   position: relative;
 }
 
@@ -20,7 +19,7 @@
 .form-box {
   margin: 0 auto;
   align-items: center;
-  width: 350px;
+  width: 400px;
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -54,7 +53,8 @@
 }
 
 .session-form-errors > ul > li{
-  margin-top: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   text-align: center;
   color: red;
   font-size: 16px;

@@ -15,15 +15,21 @@ const receiveLike = like => ({
   like
 })
 
-const removeLike = likeId => ({
+const removeLike = () => ({
   type: REMOVE_LIKE,
-  likeId
 })
 
 export const fetchLikes = () => dispatch => (
   LikeApiUtil.fetchLikes()
   .then(
     res => dispatch(receiveAllLikes(res))
+  )
+)
+
+export const fetchLike = (likeId) => dispatch => (
+  CommentApiUtil.fetchLike(likeId)
+  .then(
+    res => dispatch(receiveLike(res))
   )
 )
 
