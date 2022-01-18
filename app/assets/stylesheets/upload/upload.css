@@ -8,7 +8,7 @@
 }
 
 .upload-box{
-  padding-top: 400px;
+  padding-top: 300px;
   text-align: center;
   vertical-align: middle;
 }
@@ -49,54 +49,49 @@
 
 .upload-form{
   display: flex;
-  column-gap: 40px;
-  padding: 20px;
+  column-gap: 5%;
 }
 
 .photo-information{
   float: left;
+  background-color: black;
   flex-direction:row;
-  width:250px;
-  height:300px;
-  padding: 20px 10px 20px 30px;
-
+  margin-top: 50px;
+  margin-left: 20px;
+  border: rgb(104, 104, 104) solid 2px;
+  width: 350px;
+  height: 100%;
 }
 
 .editing-header{
   color:grey;
-  background-color: rgb(33, 33, 33);
-  border: rgb(104, 104, 104) solid 2px;
+  margin:5px;
   padding: 10px;
 }
 
-.upload-input-box{
-  border: rgb(104, 104, 104) solid 2px;
-  padding-left:10px;
-}
-
 .title-and-description{
-
-  padding-top:10px;
-  padding-bottom:10px;
+  border-top: rgb(104, 104, 104) solid 2px;
+  border-bottom: rgb(104, 104, 104) solid 2px;
+  padding: 15px;
 }
 
 .title-input{
-  width:215px;
+  width:95%;
 }
 .description-input{
-  width:215px;
+  width:95%;
 }
 .tag-input{
-  width:215px;
+  width:95%;
 }
 
 .title-input-container{
   padding-bottom:5px;
 }
 
-
 .tag-div{
-  padding-bottom:20px;
+  padding: 15px;
+  border-bottom: rgb(104, 104, 104) solid 2px;
 }
 
 .title-input::placeholder{
@@ -112,14 +107,14 @@
 }
 
 .upload-image-preview{
+  margin-top: 50px;
   float: left;
   border: 5px solid magenta;
-  width: 500px;
-  height: 400px;
+  max-width: 50%;
 }
 
 .upload-submit-container{
-  padding-bottom: 20px;
+  padding: 15px;
 }
 
 .upload-submit{
@@ -128,4 +123,3 @@
   color: white;
   text-align: center;
 }
-
