@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import SearchIndexItem from './search_index_item';
+import Footer from '../footer/footer';
 
 class SearchIndex extends React.Component {
 
@@ -37,6 +38,7 @@ class SearchIndex extends React.Component {
           <div className="search-index-item">
             {filteredPhotoItem}
           </div>
+          <Footer/>
         </div>
 
       )

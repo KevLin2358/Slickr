@@ -44,7 +44,6 @@ class Search extends React.Component{
           onChange={this.update("query")}
           onKeyPress={(e) => this.handleKeypress(e)}
         />
-        
         <img className="search-button" onClick={e => this.handleSubmit(e)} src={search_icon} />
 
         {this.state.search ? 
