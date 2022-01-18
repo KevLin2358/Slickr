@@ -1,5 +1,6 @@
 import React from 'react';
 import PhotoIndexItem from './photo_index_item'
+import Footer from '../footer/footer';
 
 class PhotoIndex extends React.Component{
   componentDidMount(){
@@ -23,6 +24,7 @@ class PhotoIndex extends React.Component{
             ))
           }
         </div>
+        <Footer/>
       </div>
     )
   }
