@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Footer from '../footer/footer';
 
 class PhotoShow extends React.Component{
   constructor(props){
@@ -214,7 +215,7 @@ class PhotoShow extends React.Component{
         </div>
       )
       submitButton = (
-        <div className="edit-photo-button-container">
+        <div className="submit-photo-button-container">
           <button className="edit-photo-button" onClick={this.handleEdit}>Submit</button>
         </div>
       )
@@ -229,7 +230,7 @@ class PhotoShow extends React.Component{
       <div className="photo-show-container">
         <div className="image-background">
           <div className="back-to-explore">
-            <Link to="/explore">Back to explore</Link>
+            {/* <Link to="/explore">Back to explore</Link> */}
           </div>
 
           <div className="show-img-container">
@@ -243,7 +244,7 @@ class PhotoShow extends React.Component{
             <h1 className="show-info-username">{ photo ? photo.user.username : "" }</h1>
 
             {editable ? 
-            <div class="title-edited-container">
+            <div className="title-edited-container">
               <input 
                 className="title-edited" 
                 type='text' 
@@ -334,6 +335,7 @@ class PhotoShow extends React.Component{
             </div>
           </div>
         </div>
+            <Footer/>
       </div>
     );
   }

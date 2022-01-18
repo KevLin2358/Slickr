@@ -5,13 +5,14 @@
   height: 50px;
   background-color: black;
   display: flex;
+
 }
 
 .footer-nav div{
   color:white;
   display: inline-block;
   padding-top: 15px;
-  padding-left: 50px;
+  padding-left: 550px;
   padding-right: 50px;
   font-size: 16px;
 }

@@ -18,6 +18,8 @@
 .show-img-container{
   display: flex;
   align-items: center;
+  margin-top: 10px;
+  padding-bottom: 30px;
   min-height: 770px;
 }
 
@@ -25,9 +27,9 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+  overflow: hidden;
   max-width: 70%;
   max-height: 70%;
-  overflow: hidden;
 }
 
 .show-info{
@@ -110,27 +112,31 @@
 
 .edit-photo-button-container{
   width: 500px;
-  padding-left: 450px;
+  padding-left: 459px;
   padding-top: 20px;
   padding-bottom: 10px;
 
 }
 
-.edit-photo-button{
-
+.submit-photo-button-container{
+  width: 500px;
+  padding-left: 433px;
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
 
 .title-edited-container{
   display: flex;
   padding-bottom: 20px;
+
 }
 
 .title-edited{
-  width:300px;
+  width:500px;
 }
 
 .description-edited{
-  width:300px;
+  width:500px;
   height: 100px;
 }
 
