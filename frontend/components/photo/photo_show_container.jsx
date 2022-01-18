@@ -13,7 +13,7 @@ const mSTP = (state, ownProps) => {
     photoId: ownProps.match.params.id,
     tags: Object.values(state.entities.tags),
     comments: Object.values(state.entities.comments),
-    likes: Object.values(state.entities.follows)
+    likes: Object.values(state.entities.likes)
   };
 }
 

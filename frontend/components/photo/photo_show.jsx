@@ -63,15 +63,23 @@ class PhotoShow extends React.Component{
     if (prevProps.tags != this.props.tags) {
       this.setState({tagArray: this.props.tags})
     }
+    // debugger
+    if (prevProps.comments != this.props.comments) {
+      this.setState({commentArray: this.props.comments})
+    }
+    debugger
+    if(prevProps.likes.length != this.props.likes.length){
+      this.setState({likeArray: this.props.likes})
+    }
   }
 
   handleCommentSubmit(e){
     e.preventDefault();
     let comment = { photo_id: this.props.photoId, commenter_id: this.props.currentUserId, body: this.state.body};
     this.props.createComment(comment)
-      .then(() =>
-        location.reload()
-      )
+      // .then(() =>
+      //   location.reload()
+      // )
   }
 
   handleLikeSubmit(e){
@@ -79,7 +87,7 @@ class PhotoShow extends React.Component{
     let like = {photo_id: this.props.photoId, liker_id: this.props.currentUserId};
     this.props.createLike(like)
       .then(() =>
-        location.reload()
+        this.props.fetchLikes()
       )
   }
 
@@ -119,16 +127,18 @@ class PhotoShow extends React.Component{
     e.preventDefault();
     this.props.deleteComment(id)
       .then(() =>
-        location.reload()
+        // location.reload()
+        this.props.fetchComments()
       )
   }
 
   handleLikeDelete(e, id){
     e.preventDefault();
     this.props.deleteLike(id)
-    .then(() =>
-      location.reload()
-    )
+      .then(() =>
+        // location.reload()
+        this.props.fetchLikes()
+      )
   }
 
   toggleEdit(){
@@ -225,15 +235,6 @@ class PhotoShow extends React.Component{
           <div className="show-img-container">
             <img className="show-img" src={photo ? photo.photoURL : ""}/>
           </div>
-
-          {
-            isUploader ?
-            <div className="delete-container">
-              <button className="delete" onClick={this.handleDelete}>Delete Photo</button> 
-            </div>
-            :
-            ""
-          }
         </div>
 
         <div className="show-info">
@@ -271,6 +272,15 @@ class PhotoShow extends React.Component{
 
             {editable === false ? 
               editButton : submitButton
+            }
+
+            {
+              isUploader ?
+              <div className="delete-container">
+                <button className="delete" onClick={this.handleDelete}>Delete Photo</button> 
+              </div>
+              :
+              ""
             }
             <div className="like-section">
               <div className="like-number"> 

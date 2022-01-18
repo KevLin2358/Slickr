@@ -49,6 +49,9 @@
 }
 
 .delete-container{
+  width: 500px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   display:flex;
   justify-content: flex-end;
 }
@@ -94,11 +97,13 @@
 }
 
 .title-not-edit{
+  font-size: 24px;
   padding-bottom: 30px;
 }
 
 .description-not-edit{
   padding-bottom: 20px;
+  font-size: 18px;
   /* border-bottom: solid rgb(58, 58, 58) 1px; */
   width: 500px;
 }
@@ -108,6 +113,10 @@
   padding-left: 450px;
   padding-top: 20px;
   padding-bottom: 10px;
+
+}
+
+.edit-photo-button{
 
 }
 
@@ -145,13 +154,13 @@
 
 
 .comment-header {
-  color:grey;
+  color:rgb(36, 154, 227);
   padding-top: 20px;
   padding-bottom: 10px;
 }
 
 .comment-submission-text{
-  width: 300px;
+  width: 430px;
   height: 45px;
   float: left;
 }
@@ -184,7 +193,16 @@
 }
 
 .like-number{
+  color: rgb(36, 154, 227);
   font-size: 20px;
   float: left;
   padding-right: 20px;
+}
+
+.like-button-container{
+  text-align: end;
+}
+
+.dislike-container{
+  text-align: end;
 }

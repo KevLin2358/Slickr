@@ -127,7 +127,7 @@ class SessionForm extends React.Component {
           <p className="form-header">Log in to Slickr</p>
 
           <div className = "session-form-errors">
-              {this.renderErrors()}
+            {this.renderErrors()}
           </div>
           <input type="text"
             value={this.state.email}
@@ -159,7 +159,6 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    
     if(this.props.formType == 'Login'){
       return this.loginForm();
     }
