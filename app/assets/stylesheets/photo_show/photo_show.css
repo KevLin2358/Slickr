@@ -188,6 +188,10 @@
   float: right;
 }
 
+.comment-list{
+  padding-bottom: 50px;
+}
+
 .comment-list-comment-username{
   color: rgb(36, 154, 227);
 }
