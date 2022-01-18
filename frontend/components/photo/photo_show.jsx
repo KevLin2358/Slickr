@@ -68,7 +68,7 @@ class PhotoShow extends React.Component{
     if (prevProps.comments != this.props.comments) {
       this.setState({commentArray: this.props.comments})
     }
-    debugger
+    // debugger
     if(prevProps.likes.length != this.props.likes.length){
       this.setState({likeArray: this.props.likes})
     }
