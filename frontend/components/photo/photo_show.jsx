@@ -81,7 +81,8 @@ class PhotoShow extends React.Component{
   handleCommentSubmit(e){
     e.preventDefault();
     let comment = { photo_id: this.props.photoId, commenter_id: this.props.currentUserId, body: this.state.body};
-    this.props.createComment(comment)
+    this.props.createComment(comment);
+    this.state.body ="";
   }
 
   handleLikeSubmit(e){
