@@ -50,14 +50,6 @@
   background-color: rgb(36, 131, 189);
 }
 
-.delete-container{
-  width: 500px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  display:flex;
-  justify-content: flex-end;
-}
-
 .show-tag{
   float:right;
   display: block;
@@ -161,7 +153,7 @@
 
 .comment-header {
   color:rgb(36, 154, 227);
-  padding-top: 20px;
+  padding-top: 40px;
   padding-bottom: 10px;
 }
 
@@ -173,6 +165,8 @@
 
 .comment-submit{
   height: 51px;
+  width: 63px;
+  font-size: 16px;
 }
 
 .comment-index-item{
@@ -186,6 +180,10 @@
 
 .delete-comment{
   float: right;
+}
+
+.comment-list{
+  padding-bottom: 50px;
 }
 
 .comment-list-comment-username{
@@ -203,6 +201,7 @@
   font-size: 20px;
   float: left;
   padding-right: 20px;
+
 }
 
 .like-button-container{
@@ -211,4 +210,13 @@
 
 .dislike-container{
   text-align: end;
+}
+
+.delete-container{
+  display: inline-flex;
+}
+
+.edit-comment-button-container{
+  display: inline-flex;
+  margin-left: 390px;
 }

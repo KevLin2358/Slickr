@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { fetchPhoto, updatePhoto, deletePhoto } from "../../actions/photo_actions";
 import { fetchTags } from "../../actions/tag_actions";
-import { fetchComments, createComment, deleteComment } from "../../actions/comment_actions";
+import { fetchComments, createComment, updateComment, deleteComment } from "../../actions/comment_actions";
 import { fetchLikes, createLike, deleteLike } from "../../actions/like_actions";
 
 import PhotoShow from "./photo_show"
@@ -27,6 +27,7 @@ const mDTP = dispatch => {
 
     fetchComments: () => dispatch(fetchComments()),
     createComment: (comment) => dispatch(createComment(comment)),
+    updateComment: (comment) => dispatch(updateComment(comment)),
     deleteComment: (comment) => dispatch(deleteComment(comment)),
 
     fetchLikes: () => dispatch(fetchLikes()),

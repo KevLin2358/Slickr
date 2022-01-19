@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :photos, only: [:show, :index, :update, :destroy]
     resources :tags, only: [:index, :create, :show]
     resources :phototags, only: [:index, :create, :show]
-    resources :comments, only: [:show, :index, :create, :destroy]
+    resources :comments, only: [:show, :index, :create, :update, :destroy]
     resources :follows, only: [:show, :create, :destroy, :index]
     resources :likes, only: [:show, :create, :destroy, :index]
   end
