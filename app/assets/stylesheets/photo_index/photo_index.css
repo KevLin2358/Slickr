@@ -15,15 +15,14 @@
   position: relative;
   align-items: center;
   padding-left:200px;
-  /* padding-right:200px; */
   flex:25%;
 }
 
 .index-image-preview{
   display: flex;
   float: left;
-  max-width: 25%;
-  max-height: 100px;
+  max-width: 50%;
+  max-height: 200px;
   padding: 2px;
 }
 
