@@ -287,7 +287,7 @@ class PhotoShow extends React.Component{
 
             {
               isUploader ?
-              <div className="delete-container">
+              <div className="delete-photo-container">
                 <button className="delete" onClick={this.handleDelete}>Delete Photo</button> 
               </div>
               :
@@ -356,7 +356,7 @@ class PhotoShow extends React.Component{
                     
                     {
                       comment.commenter_id === currentUserId ? 
-                      <div className="delete-container">
+                      <div className="delete-comment-container">
                         <button className="delete" onClick={ e => (this.handleCommentDelete(e, comment.id))}>Delete</button> 
                       </div>
                       : ""
