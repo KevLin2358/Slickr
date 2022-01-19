@@ -13,7 +13,7 @@ class PhotoShow extends React.Component{
       body: "",
 
       likeArray: [],
-
+      current_comment: "",
       editable: false,
       comment_edit: false
     }
@@ -155,8 +155,9 @@ class PhotoShow extends React.Component{
     this.setState({editable: !this.state.editable})
   }
 
-  toggleCommentEdit(){
-    this.setState({comment_edit: !this.state.comment_edit})
+  toggleCommentEdit(e, cId){
+    this.setState({comment_edit: !this.state.comment_edit});
+    this.setState({current_comment: cId});
   }
 
   update(field) {
@@ -166,7 +167,7 @@ class PhotoShow extends React.Component{
   }
 
   render(){
-    const {editable, tagArray, commentArray, likeArray, comment_edit} = this.state
+    const {editable, tagArray, commentArray, likeArray, comment_edit, current_comment} = this.state
     const {currentUserId, photoId, photo} = this.props
     const uploader_id = photo ? photo.uploader_id : "";
 
@@ -332,7 +333,7 @@ class PhotoShow extends React.Component{
                   <div className="comment-index-item" key={comment.id}>
                     <div className="comment-list-comment-username"> {comment.username}</div>
                     {                 
-                      (comment.commenter_id === currentUserId) && (comment_edit === true) ? 
+                      (comment.commenter_id === currentUserId) && (comment_edit === true) && (comment.id === current_comment)? // not specifying the actual comment
                       <div className="comment-submission">
                         <textarea
                           className="comment-submission-text"
@@ -348,15 +349,15 @@ class PhotoShow extends React.Component{
                     }
 
                     {
-                      (comment.commenter_id === currentUserId) && (comment_edit === false) ? 
+                      (comment.commenter_id === currentUserId) && (comment_edit === false)? 
                       <div className="edit-comment-button-container">
-                        <button className="edit-comment-button" onClick={this.toggleCommentEdit}>Edit</button>
+                        <button className="edit-comment-button" onClick={e => (this.toggleCommentEdit(e, comment.id))}>Edit</button>
                       </div> 
                       : ""
                     }
                     
                     {
-                      comment.commenter_id === currentUserId ? 
+                      (comment.commenter_id === currentUserId) ? 
                       <div className="delete-comment-container">
                         <button className="delete" onClick={ e => (this.handleCommentDelete(e, comment.id))}>Delete</button> 
                       </div>
