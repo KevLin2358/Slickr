@@ -1,4 +1,5 @@
 import {
+  EDIT_COMMENT,
   RECEIVE_ALL_COMMENTS,
   RECEIVE_COMMENT,
   REMOVE_COMMENT
@@ -15,6 +16,9 @@ const commentReducer = (state ={}, action) => {
     case RECEIVE_COMMENT:
       newState = Object.assign({}, state);
       newState[action.comment.id] = action.comment;
+      return newState;
+    case EDIT_COMMENT:
+      newState = Object.assign({}, state);
       return newState;
     case REMOVE_COMMENT:
       newState = Object.assign({}, state);

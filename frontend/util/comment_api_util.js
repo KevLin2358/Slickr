@@ -22,6 +22,14 @@ export const createComment = comment => {
   )
 }
 
+export const updateComment = comment => (
+  $.ajax({
+    url: `/api/comments/${comment.id}`,
+    method: `PATCH`,
+    data: comment
+  })
+)
+
 export const deleteComment = id => (
   $.ajax({
     url: `/api/comments/${id}`,
