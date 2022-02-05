@@ -1,8 +1,6 @@
 .image-background{
   width: 100%;
-
   background-color: rgb(33, 33, 36);
-
 }
 
 .back-to-explore{
@@ -39,7 +37,7 @@
   margin-right: auto;
 }
 
-.photo-show-container button{
+/* .photo-show-container button{
   background-color: rgb(36, 154, 227);
   border: solid 1px rgb(36, 154, 227);
   color: white;
@@ -48,7 +46,7 @@
 
 .photo-show-container button:hover{
   background-color: rgb(36, 131, 189);
-}
+} */
 
 .show-tag{
   float:right;
@@ -87,34 +85,25 @@
 }
 
 .show-info-username{
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: 500;
+  font-size: 24px;
 }
 
 .title-not-edit{
   font-size: 24px;
+  margin-left: 70px;
+  padding-top: 10px;
   padding-bottom: 30px;
+  font-weight: 400;
 }
 
 .description-not-edit{
   padding-bottom: 20px;
   font-size: 18px;
-  /* border-bottom: solid rgb(58, 58, 58) 1px; */
   width: 500px;
-}
-
-.edit-photo-button-container{
-  width: 500px;
-  padding-left: 459px;
-  padding-top: 20px;
-  padding-bottom: 10px;
-
-}
-
-.submit-photo-button-container{
-  width: 500px;
-  padding-left: 433px;
-  padding-top: 20px;
-  padding-bottom: 10px;
+  margin-left: 70px;
 }
 
 .title-edited-container{
@@ -130,94 +119,97 @@
 .description-edited{
   width:500px;
   height: 100px;
+  margin-left: 70px;
 }
 
-.dislike-container .delete{
+/* .dislike-container .delete{
   background-color: red;
   border: solid 1px red;
 }
 
 .dislike-container .delete:hover {
   background-color: rgb(255, 74, 74);
-}
+} */
 
 
 .comment-header {
+  width: 500px;
   color:rgb(36, 154, 227);
-  padding-top: 40px;
+  padding-top: 20px;
   padding-bottom: 10px;
+  margin-left: 70px;
+  border-top: solid rgb(58, 58, 58) 1px;
+}
+
+.comment-submission{
+  width: 580px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .comment-submission-text{
-  width: 430px;
+  width: 500px;
   height: 45px;
-  float: left;
 }
 
 .comment-submit{
-  height: 51px;
-  width: 63px;
+  display: block;
+  height: 40px;
+  width: 100px;
   font-size: 16px;
+  background-color: rgb(36, 154, 227);
+  border: solid 1px rgb(36, 154, 227);
+  color: white;
+  border-radius: 5px;
+}
+
+.comment-submit:hover{
+  background-color: rgb(36, 131, 189);
+
 }
 
 .comment-index-item{
   margin-top: 20px;
-  width: 500px;
+  width: 580px;
+  padding-bottom: 10px;
 }
 
 .comment-index-item:hover{
   background-color:rgb(203, 203, 203);
 }
 
-.comment-list{
-  padding-bottom: 50px;
-}
-
 .comment-list-comment-username{
   color: rgb(36, 154, 227);
+  padding-top: 10px;
 }
 
 .like-section{
   width: 500px;
   padding-top: 20px;
-  border-top: solid rgb(58, 58, 58) 1px;
+  padding-bottom: 20px;
 }
 
 .like-number{
   color: rgb(36, 154, 227);
-  font-size: 20px;
-  float: left;
-  padding-right: 20px;
-
-}
-
-.like-button-container{
-  text-align: end;
-}
-
-.dislike-container{
-  text-align: end;
-}
-
-.delete-photo-container{
   width: 500px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  display:flex;
-  justify-content: flex-end;
+  font-size: 25px;
+  margin-left: 70px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: solid rgb(58, 58, 58) 1px;
+  border-bottom: 1px solid black;
 }
 
-.delete-comment-container{
-  display: inline-flex;
-  padding-left: 5px;
+.like-button{
+  display: flex;
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin-right: 20px;
+  background-color: rgb(243, 245, 246);
 }
 
-.edit-comment-button-container{
-  display: inline-flex;
-  margin-left: 385px;
-}
-
-.delete-photo-container .delete{
+/* .delete-photo-container .delete{
   background-color: red;
   border: solid 1px red;
 }
@@ -233,4 +225,135 @@
 
 .delete-comment-container .delete:hover {
   background-color: rgb(255, 74, 74);
+} */
+
+.buddy{
+  border-radius: 100%;
+  display: flex;
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin-right: 20px;
+}
+
+.star{
+  display: flex;
+  margin-top: 6px;
+  width: 50px;
+  height: 50px;
+}
+
+.edit-button{
+  background-color: rgb(243, 245, 246);
+  border-radius: 100%;
+}
+
+.button-img{
+  width:25px;
+}
+
+.edit-button:hover{
+  background-color:rgb(203, 203, 203);
+}
+
+.comment-submit-container{
+  display: flex;
+  margin-left: 477px;
+  margin-top: 10px;
+}
+
+.comment-section{
+  padding-bottom: 50px; 
+
+}
+
+.submit-button-container{
+  display:inline-flex;
+  margin-left: 510px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.submit-photo-button{
+  background-color: rgb(243, 245, 246);
+  border-radius: 100%;
+}
+
+.submit-button:hover{
+  background-color: rgb(36, 154, 227);
+}
+
+.edit-button-container{
+  display:inline-flex;
+  margin-left: 500px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.comment-list-comment-body{
+  padding-top: 20px;
+  margin-left: 70px;
+}
+
+.comment-submission-edit-text{
+  width: 500px;
+  height: 60px;
+  margin-left: 70px;
+}
+
+.delete-comment-container{
+  display: none;
+  justify-content: flex-end;
+}
+
+.delete{
+  background-color: rgb(243, 245, 246);
+  border-radius: 100%;
+}
+
+.delete:hover{
+  background-color:rgb(203, 203, 203);
+}
+
+.delete-container{
+  display:inline-flex;
+}
+
+.comment-submission-edit{
+  display: initial;
+  width: 580px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.comment-edit-button-container{
+  display: none;
+  margin-left: 335px;
+}
+
+.comment-index-item:hover .comment-edit-button-container{
+  display:inline-flex;
+}
+
+.comment-index-item:hover .delete-comment-container{
+  display:inline-flex;
+}
+
+
+.edit-comment-submit{
+  display: block;
+  height: 40px;
+  width: 100px;
+  font-size: 16px;
+  background-color: rgb(36, 154, 227);
+  border: solid 1px rgb(36, 154, 227);
+  color: white;
+  border-radius: 5px;
+}
+
+.edit-comment-button-container{
+  display:inline-flex;
+  margin-left: 477px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
