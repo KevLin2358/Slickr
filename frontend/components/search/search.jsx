@@ -37,6 +37,7 @@ class Search extends React.Component{
   render(){
     return(
       <div className='search-bar'>
+        <img className="search-button" onClick={e => this.handleSubmit(e)} src={search_icon} />
         <input
           className='search-input'
           type="search"
@@ -44,7 +45,6 @@ class Search extends React.Component{
           onChange={this.update("query")}
           onKeyPress={(e) => this.handleKeypress(e)}
         />
-        <img className="search-button" onClick={e => this.handleSubmit(e)} src={search_icon} />
 
         {this.state.search ? 
           <Redirect to={{

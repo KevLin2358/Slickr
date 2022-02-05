@@ -1,6 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Footer from '../footer/footer';
+import buddy from '../../../app/assets/images/buddy.png';
+import like_star from '../../../app/assets/images/like-star.png';
+import dislike_star from '../../../app/assets/images/dislike-star.png';
+import edit_button from '../../../app/assets/images/edit.png';
+import delete_button from '../../../app/assets/images/delete.png';
 
 class PhotoShow extends React.Component{
   constructor(props){
@@ -208,15 +213,15 @@ class PhotoShow extends React.Component{
     let dislikeButton;
     if (!isUploader) {
       likeButton = (
-        <div className="like-button-container">
-          <button className="like-button" onClick={this.handleLikeSubmit}>Like</button>
-        </div> 
+        <button className="like-button" onClick={this.handleLikeSubmit}>
+          <img className ="star" src={like_star} />
+        </button>
       );
   
       dislikeButton = (
-        <div className="dislike-container">
-          <button className="delete" onClick={ e => (this.handleLikeDelete(e, currentDislike))}>Dislike</button> 
-        </div>
+        <button className="like-button" onClick={ e => (this.handleLikeDelete(e, currentDislike))}>
+          <img className ="star" src={dislike_star} />
+        </button> 
       );
     } else {
       likeButton ="";
@@ -229,13 +234,18 @@ class PhotoShow extends React.Component{
 
     if (isUploader) {
       editButton = (
-        <div className="edit-photo-button-container">
-          <button className="edit-photo-button" onClick={this.toggleEdit}>Edit</button>
+        <div className="edit-button-container">
+          <button className="edit-button" onClick={this.toggleEdit}>
+            <img className ="button-img" src={edit_button} />
+          </button>
         </div>
+
       )
       submitButton = (
-        <div className="submit-photo-button-container">
-          <button className="edit-photo-button" onClick={this.handleEdit}>Submit</button>
+        <div className="submit-button-container">
+          <button className="submit-button" onClick={this.handleEdit}>
+            <img className ="button-img" src={edit_button} />
+          </button>
         </div>
       )
     } else {
@@ -254,6 +264,7 @@ class PhotoShow extends React.Component{
 
         <div className="show-info">
           <div className="show-info-container">
+            <img className ="buddy" src={buddy}/>
             <h1 className="show-info-username">{ photo ? photo.user.username : "" }</h1>
             {editable ? 
             <div className="title-edited-container">
@@ -289,19 +300,19 @@ class PhotoShow extends React.Component{
 
             {
               isUploader ?
-              <div className="delete-photo-container">
-                <button className="delete" onClick={this.handleDelete}>Delete Photo</button> 
+              <div className="delete-container">
+                <button className="delete" onClick={this.handleDelete}>
+                  <img className ="button-img" src={delete_button} />
+                </button> 
               </div>
               :
               ""
             }
             <div className="like-section">
+              {arrayForLike.includes(currentUserId) ? dislikeButton : likeButton}
               <div className="like-number"> 
                 {res2.length} 
                 <span> likes</span>
-              </div>
-              <div> 
-                {arrayForLike.includes(currentUserId) ? dislikeButton : likeButton}
               </div>
             </div>
           </div>
@@ -316,42 +327,21 @@ class PhotoShow extends React.Component{
           </div>
 
           <div className="comment-section">
-            <div className="comment-header">Comments</div>
-            <div className="comment-submission">
-                <textarea
-                  className="comment-submission-text"
-                  type='text'
-                  value={this.state.body}
-                  onChange={this.update('body')}
-                  placeholder='type here....'
-                />
-                <button className="comment-submit" onClick={this.handleCommentSubmit}>Submit</button>
-            </div>
-            <div className="comment-list">
+
               {res1.map(comment => 
                 (
-                  <div className="comment-index-item" key={comment.id}>
-                    <div className="comment-list-comment-username"> {comment.username}</div>
-                    {                 
-                      (comment.commenter_id === currentUserId) && (comment_edit === true) && (comment.id === current_comment)? // not specifying the actual comment
-                      <div className="comment-submission">
-                        <textarea
-                          className="comment-submission-text"
-                          type='text'
-                          defaultValue={comment ? comment.body : ""}
-                          ref={this.commentEdited}
-                          placeholder='type here....'
-                        />
-                        <button className="comment-submit" onClick={ e => (this.handleCommentEdit(e, comment.id))}>Submit</button>
-                      </div>
-                      :
-                      <div className="comment-list-comment-body" > {comment.body}</div>
-                    }
 
+                  
+                  <div className="comment-index-item" key={comment.id}>
+                    <img className ="buddy" src={buddy}/>
+                    <div className="comment-list-comment-username"> 
+                      {comment.username}
                     {
                       (comment.commenter_id === currentUserId) && (comment_edit === false)? 
-                      <div className="edit-comment-button-container">
-                        <button className="edit-comment-button" onClick={e => (this.toggleCommentEdit(e, comment.id))}>Edit</button>
+                      <div className="comment-edit-button-container">
+                        <button className="edit-button" onClick={e => (this.toggleCommentEdit(e, comment.id))}>
+                          <img className ="button-img" src={edit_button} />
+                        </button>
                       </div> 
                       : ""
                     }
@@ -359,15 +349,49 @@ class PhotoShow extends React.Component{
                     {
                       (comment.commenter_id === currentUserId) ? 
                       <div className="delete-comment-container">
-                        <button className="delete" onClick={ e => (this.handleCommentDelete(e, comment.id))}>Delete</button> 
+                        <button className="delete" onClick={ e => (this.handleCommentDelete(e, comment.id))}>
+                          <img className ="button-img" src={delete_button} />
+                        </button> 
                       </div>
                       : ""
                     }
-                  </div>
+                    </div>
 
+                    {                 
+                      (comment.commenter_id === currentUserId) && (comment_edit === true) && (comment.id === current_comment)? // not specifying the actual comment
+                      <div className="comment-submission-edit">
+                        <textarea
+                          className="comment-submission-edit-text"
+                          type='text'
+                          defaultValue={comment ? comment.body : ""}
+                          ref={this.commentEdited}
+                          placeholder=''
+                        />
+
+                        <div className="edit-comment-button-container">
+                          <button className="edit-comment-submit" onClick={ e => (this.handleCommentEdit(e, comment.id))}>Comment</button>
+                        </div>
+                      </div>
+                      :
+                      <div className="comment-list-comment-body" > {comment.body}</div>
+                    }
+                  </div>
                 )
               )}
-            </div>
+              <div className="comment-submission">
+                <img className ="buddy" src={buddy}/>
+                <textarea
+                  className="comment-submission-text"
+                  type='text'
+                  value={this.state.body}
+                  onChange={this.update('body')}
+                  placeholder='Add a comment'
+                />
+                <div className="comment-submit-container">
+                  <button className="comment-submit" onClick={this.handleCommentSubmit}>Comment</button>
+                </div>
+              </div>
+
           </div>
         </div>
             <Footer/>

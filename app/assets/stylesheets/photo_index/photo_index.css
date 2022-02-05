@@ -7,7 +7,7 @@
 }
 
 .photo-index{
-  overflow: scroll;
+  /* overflow: scroll; */
   padding-bottom: 50px;
 }
 
