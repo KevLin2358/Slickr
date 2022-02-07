@@ -12,10 +12,13 @@
 }
 
 .photo-container{
-  position: relative;
+  /* position: relative;
   align-items: center;
   overflow: hidden;
-  object-fit: cover;
+  object-fit: cover; */
+  height: 300px;
+  width: 400px;
+  overflow: hidden;
 }
 
 .photo-index-item{
@@ -27,7 +30,9 @@
 }
 
 .index-image-preview{
-  width: 100%;
-  margin-bottom: 10px;
-  object-fit: cover;
+  /* width: 100%;
+  min-height: 200px;
+  margin-bottom: 10px; */
+  height: auto;
+  width: 400px;
 }
