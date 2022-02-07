@@ -17,7 +17,8 @@
   overflow: hidden;
   object-fit: cover; */
   height: 300px;
-  width: 400px;
+  /* width: 400px; */
+  
   overflow: hidden;
 }
 
@@ -33,6 +34,6 @@
   /* width: 100%;
   min-height: 200px;
   margin-bottom: 10px; */
-  height: auto;
-  width: 400px;
+  height: 300px;
+  width: 100%;
 }
