@@ -2,6 +2,7 @@ import React from 'react';
 
 class UploadPhoto extends React.Component{
 
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -15,11 +16,23 @@ class UploadPhoto extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
   }
+  
+  componentWillUnmount() {
+    this.props.removePhotoErrors();
+  }
 
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
     });
+  }
+
+  renderErrors() {
+    return(
+      <div className='photo-error'>
+        {this.props.errors}
+      </div>
+    );
   }
 
   handleFile(e){
@@ -53,7 +66,7 @@ class UploadPhoto extends React.Component{
       res => {
         // console.log(res)
         tag.photo_id = res.photo.id
-        // debugger
+        debugger
         this.props.createTag(tag)
           .then(res => {
             // debugger
@@ -66,6 +79,7 @@ class UploadPhoto extends React.Component{
         this.props.history.push(`/photos/${res.photo.id}`)
       }
     )
+    // debugger
   }
 
   render(){
@@ -95,6 +109,7 @@ class UploadPhoto extends React.Component{
                 <div className="upload-input-box">
                   <div className="title-and-description">
                     <div className="title-input-container">
+                      {this.renderErrors()}
                       <input 
                         className="title-input"
                         value={this.state.title}
@@ -131,9 +146,24 @@ class UploadPhoto extends React.Component{
                   </div>
                 </div> 
               </div>
-
+              <div className='upload-image-container'>
                 <img className="upload-image-preview" src={this.state.photoURL}/> 
+                
+                <input 
+                  className="upload-photo-title"
+                  value={this.state.title}
+                  onChange={this.update('title')}
+                  placeholder="Add a title"
+                />
+                
+                <textarea 
+                  className="upload-photo-description"
+                  value={this.state.description}
+                  onChange={this.update('description')}
+                  placeholder="Add a description"
+                />
 
+              </div>
             </div>
           </div>
         )
