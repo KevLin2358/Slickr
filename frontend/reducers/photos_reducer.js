@@ -2,7 +2,7 @@ import {
   RECEIVE_ALL_PHOTOS,
   RECEIVE_PHOTO,
   REMOVE_PHOTO,
-  EDIT_PHOTO
+  EDIT_PHOTO,
 } from '../actions/photo_actions';
 
 const photoReducer = (state = {}, action) => {

@@ -4,6 +4,9 @@ export const RECEIVE_ALL_PHOTOS = "RECEIVE_ALL_PHOTOS";
 export const RECEIVE_PHOTO = "RECEIVE_PHOTO";
 export const EDIT_PHOTO = "EDIT_PHOTO";
 export const REMOVE_PHOTO = "REMOVE_PHOTO";
+export const RECEIVE_PHOTO_ERRORS = 'RECEIVE_PHOTO_ERRORS';
+export const REMOVE_PHOTO_ERRORS = 'REMOVE_PHOTO_ERRORS';
+
 
 const receiveAllPhotos = photos => ({
   type: RECEIVE_ALL_PHOTOS,
@@ -23,6 +26,15 @@ const removePhoto = () => ({
   type: REMOVE_PHOTO
 })
 
+export const receivePhotoErrors = errors => ({
+  type: RECEIVE_PHOTO_ERRORS,
+  errors
+})
+
+export const removePhotoErrors = () => ({
+  type: REMOVE_PHOTO_ERRORS
+})
+
 export const fetchPhotos = () => dispatch => (
   PhotoApiUtil.fetchPhotos()
   .then(
@@ -40,7 +52,9 @@ export const fetchPhoto = photo => dispatch => (
 export const createPhoto = photo => dispatch => (
   PhotoApiUtil.createPhoto(photo)
   .then(
-    res => dispatch(receivePhoto(res))
+    res => dispatch(receivePhoto(res)),
+    errors => dispatch(receivePhotoErrors(errors.responseJSON))
+
   )
 )
 
