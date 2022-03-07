@@ -1,5 +1,5 @@
 <h1><a href="http://127.0.0.1:3000/#/"> Slickr </a></h1>
- 
+<img src="main.png">
 <p>Table of Contents</p>
 <ul>
     <a href="#background"><li>Background</li></a>
@@ -18,7 +18,7 @@ Slickr is a clone of a social image hosting website called flickr. The site allo
   <li>React.js</li>
   <li>Redux</li>
  </ul>
-
+<img src="photo_show.png">
 <h2 id="core-features">Core Features </h2>
  <ul>
    <h4>Photos</h4>
@@ -28,6 +28,56 @@ Slickr is a clone of a social image hosting website called flickr. The site allo
    <li>They are also able to delete their photo</li>
    <li>Other users are able to comment and like a photo</li>
  </ul>
+
+```JSX
+  render(){
+    // debugger
+    const {photos} = this.props;
+    const query = this.props.location.search.slice(1);
+
+    if(!photos) return null;
+
+    const filteredPhotos = photos.filter(photo => {
+      return photo.title.toLowerCase().includes(query.toLowerCase());
+    })
+
+    const filteredPhotoItem = filteredPhotos.map(photo =>{
+      return (
+        <SearchIndexItem
+          key={photo.id}
+          photo = {photo}
+        />
+      )
+    })
+
+    if (query !== "" && filteredPhotoItem.length > 0) {
+      return (
+        <div className='search-index'>
+          <div className="search-index-header">
+            <h1>Search</h1>
+          </div>
+          <div className="search-index-item">
+            {filteredPhotoItem}
+          </div>
+          <Footer/>
+        </div>
+
+      )
+    } else {
+      return (
+        <div className='search-index-empty'>
+          <div className='no-search-top'>
+              {`No results for "${query}"`}
+          </div>
+          <div className='no-search-bottom'>
+              Try again?
+          </div>
+        </div>
+      )
+    }
+  }
+}
+```
 
  <ul>
   <h4>Search</h4>
